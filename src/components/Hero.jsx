@@ -55,10 +55,10 @@ function Hero() {
             {/* Name and Professional Title */}
             <div className="reveal space-y-2">
               <h1 className="font-poppins text-5xl sm:text-6xl md:text-7xl font-extrabold text-ba-dark dark:text-ba-white tracking-tight leading-[1.05]">
-                Hiruni Dissanayake
+                D. H. Hiruni Dissanayake
               </h1>
               <p className="font-poppins text-lg sm:text-xl font-bold uppercase tracking-wider text-ba-blue dark:text-ba-blue-light">
-                Business Analyst | IT Business Analyst
+                Business Analyst | QA | Project Manager 
               </p>
             </div>
 
@@ -69,7 +69,7 @@ function Hero() {
 
             {/* Professional Summary */}
             <p className="reveal font-inter text-sm sm:text-base text-ba-dark/70 dark:text-ba-light/70 leading-relaxed font-normal max-w-2xl">
-              Information Systems Engineering undergraduate at SLIIT with hands-on experience in business analysis, requirements gathering, stakeholder management, wireframing, and system documentation. Currently contributing to digital transformation initiatives at the Road Development Authority.
+              Information Systems Engineering undergraduate at SLIIT with hands-on experience in business analysis, requirements gathering, stakeholder management, wireframing, QA, Project Management, Software Development and system documentation. Currently contributing to digital transformation initiatives at the Road Development Authority.
             </p>
 
             {/* CTA Buttons */}
@@ -86,7 +86,7 @@ function Hero() {
                 onClick={() => setIsResumeOpen(true)}
                 className="inline-flex items-center justify-center gap-2 bg-ba-white/60 dark:bg-ba-dark/40 backdrop-blur-md border border-ba-dark/10 dark:border-white/10 text-ba-dark dark:text-ba-white font-poppins font-semibold text-xs uppercase tracking-wider px-7 py-4 rounded-2xl hover:border-ba-blue/40 hover:text-ba-blue dark:hover:text-ba-blue-light transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
               >
-                Download Resume
+                Download Resume/CV
               </button>
               
               <a
@@ -118,15 +118,21 @@ function Hero() {
             {/* Static Vertically Stacked Tags Outside Picture */}
             <div className="flex flex-col gap-3.5 items-start shrink-0">
               <div className="glass-panel py-2.5 px-4 rounded-2xl flex items-center gap-2.5 text-xs font-bold text-ba-dark dark:text-ba-white shadow-md whitespace-nowrap transition-transform duration-300 hover:translate-x-1.5 cursor-default">
-                <span className="text-sm">📋</span> Requirements Gathering
+                <span className="text-sm"></span> Requirements Gathering
               </div>
 
               <div className="glass-panel py-2.5 px-4 rounded-2xl flex items-center gap-2.5 text-xs font-bold text-ba-dark dark:text-ba-white shadow-md whitespace-nowrap transition-transform duration-300 hover:translate-x-1.5 cursor-default">
-                <span className="text-sm">💻</span> Wireframing / UI Mockups
+                <span className="text-sm"></span> Wireframing / UI Mockups
+              </div>
+                <div className="glass-panel py-2.5 px-4 rounded-2xl flex items-center gap-2.5 text-xs font-bold text-ba-dark dark:text-ba-white shadow-md whitespace-nowrap transition-transform duration-300 hover:translate-x-1.5 cursor-default">
+                <span className="text-sm"></span> Project Management 
+              </div>
+                <div className="glass-panel py-2.5 px-4 rounded-2xl flex items-center gap-2.5 text-xs font-bold text-ba-dark dark:text-ba-white shadow-md whitespace-nowrap transition-transform duration-300 hover:translate-x-1.5 cursor-default">
+                <span className="text-sm"></span> QA Testing & Bug Tracking
               </div>
 
               <div className="glass-panel py-2.5 px-4 rounded-2xl flex items-center gap-2.5 text-xs font-bold text-ba-dark dark:text-ba-white shadow-md whitespace-nowrap transition-transform duration-300 hover:translate-x-1.5 cursor-default">
-                <span className="text-sm">👥</span> Stakeholder Management
+                <span className="text-sm"></span> Stakeholder Management
               </div>
             </div>
           </div>
@@ -167,10 +173,28 @@ function Hero() {
           {/* Card 4 */}
           <div className="glass-panel p-6 rounded-3xl text-center glass-card-hover flex flex-col justify-center items-center min-h-[120px] reveal-scale border-ba-pink/40 dark:border-ba-pink/20">
             <p className="font-poppins text-lg sm:text-xl font-extrabold text-ba-pink-dark dark:text-ba-pink mb-2">
-              Gov Sector
+              Goverment Sector
             </p>
             <p className="font-inter text-[10px] sm:text-xs text-ba-dark/60 dark:text-ba-light/60 font-bold uppercase tracking-wider leading-snug">
               Project Experience
+            </p>
+          </div>
+           {/* Card 5 */}
+          <div className="glass-panel p-6 rounded-3xl text-center glass-card-hover flex flex-col justify-center items-center min-h-[120px] reveal-scale">
+            <p className="font-poppins text-3xl sm:text-4xl font-extrabold text-ba-blue dark:text-ba-blue-light mb-1">
+              <AnimatedCounter end={2} suffix="+" />
+            </p>
+            <p className="font-inter text-[10px] sm:text-xs text-ba-dark/60 dark:text-ba-light/60 font-bold uppercase tracking-wider leading-snug">
+              Projects QA Testing & Bug Tracking Skills
+            </p>
+          </div>
+           {/* Card 2 */}
+          <div className="glass-panel p-6 rounded-3xl text-center glass-card-hover flex flex-col justify-center items-center min-h-[120px] reveal-scale">
+            <p className="font-poppins text-3xl sm:text-4xl font-extrabold text-ba-blue dark:text-ba-blue-light mb-1">
+              <AnimatedCounter end={2} suffix="+" />
+            </p>
+            <p className="font-inter text-[10px] sm:text-xs text-ba-dark/60 dark:text-ba-light/60 font-bold uppercase tracking-wider leading-snug">
+              Project Management Skills
             </p>
           </div>
         </div>

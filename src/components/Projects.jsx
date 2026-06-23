@@ -157,14 +157,15 @@ function Projects() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-[2px] bg-gradient-to-r from-ba-blue to-ba-pink rounded-full" />
               <p className="font-poppins text-sm font-semibold text-ba-blue dark:text-ba-blue-light uppercase tracking-[0.2em]">
-                Academic Projects
+                Projects
               </p>
             </div>
             <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-ba-dark dark:text-ba-white leading-tight">
               Academic Projects
             </h2>
             <p className="font-inter text-xs sm:text-sm text-ba-dark/65 dark:text-ba-light/65 leading-relaxed mt-4">
-              A collection of university projects demonstrating business analysis, software development, system design, problem-solving, stakeholder-focused thinking, and technical implementation skills.
+              A collection of university and industry projects demonstrating business analysis, software development, system design, QA,
+              problem-solving, stakeholder-focused thinking, and technical implementation skills.
             </p>
           </div>
 
@@ -193,10 +194,13 @@ function Projects() {
 
         {/* ─── Animated Statistics Row ─── */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <StatCard label="Academic Projects" count="4" isNumeric={true} delay={100} />
-          <StatCard label="Real Client Experience" count="👗 Garment" isNumeric={false} delay={200} />
-          <StatCard label="Agile Participation" count="✓ Scrum" isNumeric={false} delay={300} />
-          <StatCard label="BA Documentation Experience" count="📄 SRS" isNumeric={false} delay={400} />
+          <StatCard label="Academic & Industry Projects" count="10" isNumeric={true} delay={100} />
+          <StatCard label="Real Client Experience" count=" Garment" isNumeric={false} delay={200} />
+          <StatCard label="Sector Experience, Real Stakeholder Experience" count=" Government" isNumeric={false} delay={300} />
+          <StatCard label="Non-Technical Stakeholder Management" count=" Client  Management " isNumeric={false} delay={300} />
+          <StatCard label="BA Documentation Experience(SRS, PRD, Architecture files, Diagrams, Wireframes)" count="SRS, PRD" isNumeric={false} delay={400} />
+          <StatCard label="Sector Experience" count="Government" isNumeric={false} delay={400} />   
+          <StatCard label="Agile Participation" count=" Scrum" isNumeric={false} delay={400} />     
         </div>
 
         {/* ─── Projects Grid ─── */}
