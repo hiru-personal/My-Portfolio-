@@ -6,24 +6,60 @@ function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   const handleChange = (e) =>
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
+
+    const payload = {
+      access_key: accessKey,
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      subject: "New Portfolio Inquiry from " + formData.name,
+      from_name: formData.name,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      } else {
+        setSubmitError(result.message || "Failed to send. Please check your credentials or try again.");
+      }
+    } catch (err) {
+      setSubmitError("Failed to send message. Please check your internet connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactLinks = [
     {
       label: 'Email',
-      value: 'hiruni.dissanayake@example.com',
-      href: 'mailto:hiruni.dissanayake@example.com',
+      value: 'hirunidissanayake116@gmail.com',
+      href: 'mailto:hirunidissanayake116@gmail.com',
       gradient: 'from-ba-blue to-ba-blue-dark',
       icon: (
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,17 +75,6 @@ function Contact() {
       icon: (
         <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-        </svg>
-      ),
-    },
-    {
-      label: 'Calendly Consultation',
-      value: 'calendly.com/hiruni-d',
-      href: 'https://calendly.com',
-      gradient: 'from-ba-pink-dark to-ba-pink',
-      icon: (
-        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
         </svg>
       ),
     },
@@ -182,19 +207,28 @@ function Contact() {
                 />
               </div>
 
+              {submitError && (
+                <div className="text-red-500 dark:text-red-400 text-xs font-semibold text-center pb-2 animate-pulse">
+                  ⚠️ {submitError}
+                </div>
+              )}
+
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className={`group relative w-full font-poppins font-bold text-xs uppercase tracking-wider py-4 rounded-2xl overflow-hidden transition-all duration-500 ${
                   submitted
                     ? 'bg-emerald-500 text-white shadow-lg'
+                    : isSubmitting
+                    ? 'bg-ba-blue/70 text-white shadow-md cursor-not-allowed'
                     : 'bg-ba-blue text-white shadow-md hover:bg-ba-blue-dark hover:-translate-y-0.5'
                 }`}
               >
-                {!submitted && (
+                {!submitted && !isSubmitting && (
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 )}
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  {submitted ? '✓ Communication Sent' : 'Send RFP / Inquiry'}
+                  {submitted ? '✓ Communication Sent' : isSubmitting ? 'Sending Message...' : 'Send RFP / Inquiry'}
                 </span>
               </button>
             </div>

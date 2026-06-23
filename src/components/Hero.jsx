@@ -212,7 +212,7 @@ function Hero() {
                       Contact Info
                     </h4>
                     <p className="text-xs text-ba-dark/70 dark:text-ba-light/70 leading-relaxed">
-                      📧 hiruni.dissanayake@example.com
+                      📧 hirunidissanayake116@gmail.com
                       <br />
                       🔗 linkedin.com/in/hirunidissanayake
                       <br />
