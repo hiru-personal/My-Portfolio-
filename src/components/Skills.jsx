@@ -11,9 +11,10 @@ const skillCategories = {
       { name: 'Agile & Scrum', level: 90, rating: 'Expert' },
       { name: 'Wireframing', level: 88, rating: 'Advanced' },
       { name: 'Business Process Analysis', level: 92, rating: 'Expert' },
-      { name: 'SRS Documentation', level: 95, rating: 'Expert' },
+      { name: 'SRS/BRD Documentation', level: 95, rating: 'Expert' },
       { name: 'Gap Analysis', level: 85, rating: 'Advanced' },
       { name: 'Functional & Non-Functional Analysis', level: 90, rating: 'Expert' },
+      { name: 'User Flow Design', level: 92, rating: 'Expert' },
     ],
   },
   tech: {
@@ -23,12 +24,12 @@ const skillCategories = {
       { name: 'Power BI', level: 80, rating: 'Advanced' },
       { name: 'GitHub', level: 80, rating: 'Advanced' },
       { name: 'JIRA', level: 90, rating: 'Expert' },
-      { name: 'Figma', level: 85, rating: 'Advanced' },
+      { name: 'Figma', level: 85, rating: 'Intermediate' },
       { name: 'Java', level: 75, rating: 'Intermediate' },
       { name: 'MySQL', level: 82, rating: 'Advanced' },
       { name: 'HTML & CSS', level: 90, rating: 'Expert' },
-      { name: 'JavaScript', level: 80, rating: 'Advanced' },
-      { name: 'VS Code', level: 90, rating: 'Expert' },
+      { name: 'JavaScript', level: 80, rating: 'Intermediate' },
+      { name: 'VS Code', level: 90, rating: 'Intermediate' },
     ],
   },
   soft: {
@@ -54,8 +55,10 @@ const skillCategories = {
     label: 'Quality Assurance',
     skills: [
       { name: 'Manual Testing', level: 95, rating: 'Expert' },
-      { name: 'API Testing (Postman)', level: 90, rating: 'Expert' },
+      { name: 'API Testing (Postman)', level: 90, rating: 'Intermediate' },
       { name: 'Defect Tracking', level: 92, rating: 'Expert' },
+      { name: 'Bug Reporting(Git Hub)', level: 92, rating: 'Expert' },
+      { name: 'Test Case Creation', level: 92, rating: 'Expert' },
     ],
   },
 };
@@ -141,10 +144,10 @@ function Skills() {
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-2xl">{skill.icon}</span>
                   <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full ${skill.rating === 'Expert'
-                      ? 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20'
-                      : skill.rating === 'Advanced'
-                        ? 'bg-brand-purple/5 text-brand-purple-secondary border border-brand-purple/15'
-                        : 'bg-brand-orange/10 text-brand-orange border border-brand-orange/20' /* Orange highlight */
+                    ? 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20'
+                    : skill.rating === 'Advanced'
+                      ? 'bg-brand-purple/5 text-brand-purple-secondary border border-brand-purple/15'
+                      : 'bg-brand-orange/10 text-brand-orange border border-brand-orange/20' /* Orange highlight */
                     }`}>
                     {skill.rating}
                   </span>
