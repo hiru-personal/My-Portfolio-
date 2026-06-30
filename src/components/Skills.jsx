@@ -5,57 +5,57 @@ const skillCategories = {
   ba: {
     label: 'Business Analysis',
     skills: [
-      { name: 'Requirements Gathering', level: 95, rating: 'Expert', icon: '📊' },
-      { name: 'Stakeholder Management', level: 90, rating: 'Expert', icon: '🤝' },
-      { name: 'User Stories', level: 92, rating: 'Expert', icon: '📝' },
-      { name: 'Agile & Scrum', level: 90, rating: 'Expert', icon: '🔄' },
-      { name: 'Wireframing', level: 88, rating: 'Advanced', icon: '🎨' },
-      { name: 'Business Process Analysis', level: 92, rating: 'Expert', icon: '📈' },
-      { name: 'SRS Documentation', level: 95, rating: 'Expert', icon: '📄' },
-      { name: 'Gap Analysis', level: 85, rating: 'Advanced', icon: '🔍' },
-      { name: 'Functional & Non-Functional Analysis', level: 90, rating: 'Expert', icon: '📐' },
+      { name: 'Requirements Gathering', level: 95, rating: 'Expert' },
+      { name: 'Stakeholder Management', level: 90, rating: 'Expert' },
+      { name: 'User Stories', level: 92, rating: 'Expert' },
+      { name: 'Agile & Scrum', level: 90, rating: 'Expert' },
+      { name: 'Wireframing', level: 88, rating: 'Advanced' },
+      { name: 'Business Process Analysis', level: 92, rating: 'Expert' },
+      { name: 'SRS Documentation', level: 95, rating: 'Expert' },
+      { name: 'Gap Analysis', level: 85, rating: 'Advanced' },
+      { name: 'Functional & Non-Functional Analysis', level: 90, rating: 'Expert' },
     ],
   },
   tech: {
     label: 'Technical Toolkit',
     skills: [
-      { name: 'SQL', level: 85, rating: 'Advanced', icon: '🗄️' },
-      { name: 'Power BI', level: 80, rating: 'Advanced', icon: '📊' },
-      { name: 'GitHub', level: 80, rating: 'Advanced', icon: '🐙' },
-      { name: 'JIRA', level: 90, rating: 'Expert', icon: '📋' },
-      { name: 'Figma', level: 85, rating: 'Advanced', icon: '🎨' },
-      { name: 'Java', level: 75, rating: 'Intermediate', icon: '☕' },
-      { name: 'MySQL', level: 82, rating: 'Advanced', icon: '💾' },
-      { name: 'HTML & CSS', level: 90, rating: 'Expert', icon: '🌐' },
-      { name: 'JavaScript', level: 80, rating: 'Advanced', icon: '💛' },
-      { name: 'VS Code', level: 90, rating: 'Expert', icon: '💻' },
+      { name: 'SQL', level: 85, rating: 'Advanced' },
+      { name: 'Power BI', level: 80, rating: 'Advanced' },
+      { name: 'GitHub', level: 80, rating: 'Advanced' },
+      { name: 'JIRA', level: 90, rating: 'Expert' },
+      { name: 'Figma', level: 85, rating: 'Advanced' },
+      { name: 'Java', level: 75, rating: 'Intermediate' },
+      { name: 'MySQL', level: 82, rating: 'Advanced' },
+      { name: 'HTML & CSS', level: 90, rating: 'Expert' },
+      { name: 'JavaScript', level: 80, rating: 'Advanced' },
+      { name: 'VS Code', level: 90, rating: 'Expert' },
     ],
   },
   soft: {
     label: 'Soft Skills',
     skills: [
-      { name: 'Communication', level: 95, rating: 'Expert', icon: '🗣️' },
-      { name: 'Critical Thinking', level: 92, rating: 'Expert', icon: '🧠' },
-      { name: 'Problem Solving', level: 95, rating: 'Expert', icon: '💡' },
-      { name: 'Team Collaboration', level: 90, rating: 'Expert', icon: '👥' },
-      { name: 'Documentation', level: 95, rating: 'Expert', icon: '📂' },
-      { name: 'Analytical Thinking', level: 95, rating: 'Expert', icon: '📈' },
+      { name: 'Communication', level: 95, rating: 'Expert' },
+      { name: 'Critical Thinking', level: 92, rating: 'Expert' },
+      { name: 'Problem Solving', level: 95, rating: 'Expert' },
+      { name: 'Team Collaboration', level: 90, rating: 'Expert' },
+      { name: 'Documentation', level: 95, rating: 'Expert' },
+      { name: 'Analytical Thinking', level: 95, rating: 'Expert' },
     ],
   },
   pm: {
     label: 'Project Management',
     skills: [
-      { name: 'Project Planning', level: 95, rating: 'Expert', icon: '📅' },
-      { name: 'Task Management', level: 92, rating: 'Expert', icon: '✅' },
-      { name: 'Team Collaboration', level: 95, rating: 'Expert', icon: '👥' }
+      { name: 'Project Planning', level: 95, rating: 'Expert' },
+      { name: 'Task Management', level: 92, rating: 'Expert' },
+      { name: 'Team Collaboration', level: 95, rating: 'Expert' }
     ],
   },
   qa: {
     label: 'Quality Assurance',
     skills: [
-      { name: 'Manual Testing', level: 95, rating: 'Expert', icon: '🧪' },
-      { name: 'API Testing (Postman)', level: 90, rating: 'Expert', icon: '🚀' },
-      { name: 'Defect Tracking', level: 92, rating: 'Expert', icon: '🐛' },
+      { name: 'Manual Testing', level: 95, rating: 'Expert' },
+      { name: 'API Testing (Postman)', level: 90, rating: 'Expert' },
+      { name: 'Defect Tracking', level: 92, rating: 'Expert' },
     ],
   },
 };
@@ -115,8 +115,8 @@ function Skills() {
                   key={key}
                   onClick={() => setActiveTab(key)}
                   className={`font-poppins text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-all duration-300 whitespace-nowrap ${isActive
-                      ? 'bg-gradient-to-r from-brand-purple to-brand-purple-secondary text-white shadow-md shadow-brand-purple/10'
-                      : 'text-brand-dark-textMuted hover:text-brand-purple'
+                    ? 'bg-gradient-to-r from-brand-purple to-brand-purple-secondary text-white shadow-md shadow-brand-purple/10'
+                    : 'text-brand-dark-textMuted hover:text-brand-purple'
                     }`}
                 >
                   {skillCategories[key].label}
@@ -140,8 +140,7 @@ function Skills() {
                 {/* Header: Icon & Badge with staggered colors */}
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-2xl">{skill.icon}</span>
-                  <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full ${
-                    skill.rating === 'Expert'
+                  <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full ${skill.rating === 'Expert'
                       ? 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20'
                       : skill.rating === 'Advanced'
                         ? 'bg-brand-purple/5 text-brand-purple-secondary border border-brand-purple/15'

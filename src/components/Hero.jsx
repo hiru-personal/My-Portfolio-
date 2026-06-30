@@ -52,10 +52,10 @@ function Hero() {
             {/* Name / Heading (SaaS style gradient title) */}
             <div className="reveal space-y-2">
               <h1 className="font-poppins text-5xl sm:text-6xl md:text-[68px] font-extrabold text-white tracking-tight leading-[1.05]">
-                About <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-purple-secondary">Me</span>
+                Hiruni <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-purple-secondary">Dissanayake</span>
               </h1>
               <p className="font-poppins text-lg sm:text-xl font-bold tracking-wide text-brand-purple-secondary mt-2">
-                Business Analyst | Project Manager | QA Enthusiast
+                Business Analyst  | Project Manager  | Quality Assuarance
               </p>
             </div>
 
@@ -106,11 +106,49 @@ function Hero() {
                 onClick={() => setIsResumeOpen(true)}
                 className="group inline-flex items-center justify-center gap-2 bg-transparent border border-white/10 hover:border-brand-purple text-white font-poppins font-semibold text-xs uppercase tracking-wider px-7 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-purple/5"
               >
-                Download Resume
+                Download CV
                 <svg className="w-4 h-4 text-white/60 group-hover:text-brand-purple transition-colors" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
               </button>
+            </div>
+
+            {/* Find Me Social Links */}
+            <div className="reveal flex items-center gap-4 pt-6">
+              <span className="font-poppins text-xs font-semibold tracking-[0.2em] text-brand-dark-textMuted uppercase">
+                Find Me
+              </span>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://github.com/hiru-personal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-brand-dark-card/60 border border-white/5 flex items-center justify-center text-white/70 hover:text-brand-purple hover:border-brand-purple/35 transition-all duration-300 shadow-md"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/hiruni-dissanayake-2a7a65396?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-brand-dark-card/60 border border-white/5 flex items-center justify-center text-white/70 hover:text-brand-purple hover:border-brand-purple/35 transition-all duration-300 shadow-md"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                    <circle cx="4" cy="4" r="2" stroke="currentColor" strokeWidth={1.5} />
+                  </svg>
+                </a>
+                <a
+                  href="mailto:hirunidissanayake116@gmail.com"
+                  className="w-10 h-10 rounded-xl bg-brand-dark-card/60 border border-white/5 flex items-center justify-center text-white/70 hover:text-brand-purple hover:border-brand-purple/35 transition-all duration-300 shadow-md"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -119,13 +157,13 @@ function Hero() {
             <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 shrink-0">
               {/* Hollow purple circle on the top left */}
               <div className="absolute w-8 h-8 rounded-full border-2 border-brand-purple/50 -top-4 -left-4 animate-float-1 pointer-events-none" />
-              
+
               {/* Outer purple circle border with orange dot highlight */}
               <div className="absolute inset-0 rounded-full border border-brand-purple/40 scale-[1.08] pointer-events-none animate-orbit-pulse">
                 {/* Small orange dot on the outer orbit */}
                 <div className="absolute w-3.5 h-3.5 bg-brand-orange rounded-full right-[-7px] top-1/2 -translate-y-1/2 shadow-md shadow-brand-orange/40" />
               </div>
-              
+
               {/* Soft purple glowing backdrop */}
               <div className="absolute -bottom-6 -right-6 w-3/4 h-3/4 rounded-full bg-brand-purple/15 blur-3xl -z-10 pointer-events-none" />
 
@@ -212,11 +250,11 @@ function Hero() {
             </div>
             <div>
               <p className="font-inter text-[10px] text-brand-dark-textMuted font-bold uppercase tracking-wider leading-snug">
-                Learning Every Day
+                Gov Sector
               </p>
               <div className="flex flex-col items-start mt-1">
                 <span className="font-poppins text-3xl font-extrabold text-white leading-none">
-                  Always
+                  5+    Projects Experience
                 </span>
                 <div className="w-10 h-1 bg-brand-purple rounded-full mt-2" />
               </div>
