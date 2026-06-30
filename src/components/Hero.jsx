@@ -299,11 +299,11 @@ function Hero() {
                       Contact Info
                     </h4>
                     <p className="text-xs text-brand-dark-textMuted leading-relaxed">
-                      📧 hirunidissanayake116@gmail.com
+                      Email: hirunidissanayake116@gmail.com
                       <br />
-                      🔗 https://www.linkedin.com/in/hiruni-dissanayake-2a7a65396
+                      LinkedIn: linkedin.com/in/hiruni-dissanayake-2a7a65396
                       <br />
-                      📍 Colombo, Sri Lanka
+                      Address: Colombo, Sri Lanka
                     </p>
                   </div>
 

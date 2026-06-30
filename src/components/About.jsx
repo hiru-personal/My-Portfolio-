@@ -26,31 +26,26 @@ const milestones = [
 const strengths = [
   {
     title: 'Requirements Engineering',
-    icon: '📐',
     color: 'orange', // Orange highlight
     description: 'Proficient in eliciting, documenting, and managing software requirements. Skilled in authoring SRS, User Stories, and UML diagrams (Use Case, Activity, Class, Sequence and other Diagrams).',
   },
   {
     title: 'Stakeholder Alignment',
-    icon: '🤝',
     color: 'purple',
     description: 'Experienced in acting as a bridge between corporate stakeholders and engineering teams. Facilitating clear project goals and setting exact acceptance parameters.',
   },
   {
     title: 'Quality Assurance & Testing',
-    icon: '🛡️',
     color: 'purple',
     description: 'Experienced in Frontend Testing, Backend Testing, and API Testing. Skilled in identifying defects, validating system functionality, preparing test cases, and ensuring software quality through comprehensive testing processes.',
   },
   {
     title: 'Project Management',
-    icon: '📅',
     color: 'purple',
     description: 'Passionate about planning, coordinating, and tracking project activities to ensure successful delivery. Skilled in stakeholder communication, task management, requirement analysis, and team collaboration throughout the project lifecycle.',
   },
   {
     title: 'Software Development',
-    icon: '💻',
     color: 'orange', // Orange highlight
     description: 'Hands-on experience in developing academic and personal projects using Java, C, and web technologies. Familiar with software development principles, problem-solving, debugging, and building user-focused applications.',
   },
@@ -174,8 +169,7 @@ function About() {
               key={strength.title}
               className={`glass-panel p-6 rounded-[18px] text-left reveal glass-card-hover border border-white/5 bg-brand-dark-card/45 hover:border-brand-${strength.color}/25 hover:shadow-brand-${strength.color}/5`}
             >
-              <div className="text-2xl mb-4">{strength.icon}</div>
-              <h4 className="font-poppins text-lg font-bold text-white mb-2">
+              <h4 className="font-poppins text-lg font-bold text-white mb-2 pt-2">
                 {strength.title}
               </h4>
               <p className="font-inter text-xs text-brand-dark-textMuted leading-relaxed">

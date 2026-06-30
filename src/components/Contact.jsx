@@ -208,7 +208,7 @@ function Contact() {
 
               {submitError && (
                 <div className="text-red-500 text-xs font-semibold text-center pb-2 animate-pulse">
-                  ⚠️ {submitError}
+                  {submitError}
                 </div>
               )}
 

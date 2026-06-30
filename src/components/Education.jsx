@@ -2,11 +2,11 @@ import React from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const courses = [
-  { name: 'Systems Analysis & Design', icon: '📐', desc: 'Analyzing system requirements, modeling workflows, and authoring technical system blueprints.' },
-  { name: 'Database Management (DBMS)', icon: '🗄️', desc: 'Relational data design, SQL querying, entity relationships, and transaction tracking.' },
-  { name: 'IT Project Management', icon: '📅', desc: 'Agile/Scrum principles, project schedules, risk management, and resource estimation.' },
-  { name: 'Enterprise Architecture', icon: '🏢', desc: 'Mapping corporate workflows to software capabilities and data integration layers.' },
-  { name: 'Software Quality Assurance', icon: '✓', desc: 'Defining acceptance criteria, test execution patterns, and system verification workflows.' },
+  { name: 'Systems Analysis & Design', desc: 'Analyzing system requirements, modeling workflows, and authoring technical system blueprints.' },
+  { name: 'Database Management (DBMS)', desc: 'Relational data design, SQL querying, entity relationships, and transaction tracking.' },
+  { name: 'IT Project Management', desc: 'Agile/Scrum principles, project schedules, risk management, and resource estimation.' },
+  { name: 'Enterprise Architecture', desc: 'Mapping corporate workflows to software capabilities and data integration layers.' },
+  { name: 'Software Quality Assurance', desc: 'Defining acceptance criteria, test execution patterns, and system verification workflows.' },
 ];
 
 function Education() {
@@ -52,7 +52,7 @@ function Education() {
             
             <div className="text-left md:text-right font-poppins text-xs font-semibold">
               <p className="text-white uppercase tracking-wider font-bold">
-                🎓 2024 - 2028 (Expected)
+                2024 - 2028 (Expected)
               </p>
               <p className="text-brand-dark-textMuted mt-1">
                 Sri Lanka Institute of Information Technology (SLIIT)
@@ -81,12 +81,7 @@ function Education() {
                 }`}
               >
                 <div>
-                  <span className={`text-2xl w-10 h-10 rounded-[18px] flex items-center justify-center mb-4 ${
-                    isOrangeHighlight ? 'bg-brand-orange/10 text-brand-orange' : 'bg-brand-purple/10 text-brand-purple'
-                  }`}>
-                    {course.icon}
-                  </span>
-                  <h4 className="font-poppins text-base font-bold text-white mb-2">
+                  <h4 className="font-poppins text-base font-bold text-white mb-2 pt-2">
                     {course.name}
                   </h4>
                   <p className="font-inter text-xs text-brand-dark-textMuted leading-relaxed">

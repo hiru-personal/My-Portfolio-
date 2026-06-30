@@ -63,7 +63,6 @@ const academicProjects = [
       'Full business analysis documentation',
       'Inventory optimization analysis support'
     ],
-    icon: '👗',
     skills: ['Requirements Elicitation', 'SRS Documentation', 'Database Relational Design', 'Java GUI Core'],
     highlight: false
   },
@@ -85,7 +84,6 @@ const academicProjects = [
       'Database-driven scheduling solution',
       'User-focused UX workflow design'
     ],
-    icon: '🚗',
     skills: ['Database Normalization', 'Workflow Blueprinting', 'Software Implementation'],
     highlight: false
   },
@@ -107,7 +105,6 @@ const academicProjects = [
       'Secure transaction database logging',
       'Corporate operational workflow support'
     ],
-    icon: '🚜',
     skills: ['Role-based Authorization', 'System Audit Trails', 'Database Operations'],
     highlight: true // Orange highlight
   },
@@ -129,7 +126,6 @@ const academicProjects = [
       'Real-time condition telemetry monitoring',
       'Hands-on embedded systems experience'
     ],
-    icon: '🌱',
     skills: ['Embedded C Scripting', 'Hardware Integration', 'Testing & Verification'],
     highlight: false
   }
@@ -200,9 +196,9 @@ function Projects() {
         {/* ─── Animated Statistics Row with Subtle Orange Highlight ─── */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <StatCard label="Academic Projects" count="4" isNumeric={true} color="purple" delay={100} />
-          <StatCard label="Real Client Experience" count="👗 Garment" isNumeric={false} color="purple" delay={200} />
-          <StatCard label="Agile Participation" count="✓ Scrum" isNumeric={false} color="orange" delay={300} /> {/* Orange highlight */}
-          <StatCard label="BA Documentation Experience" count="📄 SRS" isNumeric={false} color="purple" delay={400} />
+          <StatCard label="Real Client Experience" count="Garment" isNumeric={false} color="purple" delay={200} />
+          <StatCard label="Agile Participation" count="Scrum" isNumeric={false} color="orange" delay={300} />
+          <StatCard label="BA Documentation Experience" count="SRS" isNumeric={false} color="purple" delay={400} />
         </div>
 
         {/* ─── Projects Grid ─── */}
@@ -222,11 +218,6 @@ function Projects() {
                 <div>
                   {/* Header info */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-[18px] flex items-center justify-center text-2xl ${
-                      isHighlight ? 'bg-brand-orange/10' : 'bg-brand-purple/10'
-                    }`}>
-                      {project.icon}
-                    </div>
                     <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full border ${
                       isHighlight 
                         ? 'text-brand-orange bg-brand-orange/10 border-brand-orange/15' 
@@ -262,7 +253,7 @@ function Projects() {
                 {/* Action and Metrics */}
                 <div className="pt-4 border-t border-white/5 flex items-center justify-between">
                   <span className="font-poppins text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">
-                    🎯 Impact Verified
+                    Impact Verified
                   </span>
                   
                   <button
@@ -342,7 +333,7 @@ function Projects() {
                     </ul>
                     <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">
                       <p className="font-poppins text-[10px] font-extrabold uppercase tracking-wide text-emerald-400">
-                        📈 Estimated Outcome:
+                        Estimated Outcome:
                       </p>
                       <p className="font-inter text-xs text-brand-dark-textMuted mt-1 leading-snug">
                         {activeProject.impact}

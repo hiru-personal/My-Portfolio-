@@ -8,7 +8,6 @@ const professionalQuals = [
     reg: '3577974',
     status: 'Completed',
     desc: 'Completed all final stages of the Association of Accounting Technicians of Sri Lanka, establishing core competence in financial metrics and audit standards.',
-    icon: '📊',
     completed: true,
     highlight: false,
   },
@@ -18,7 +17,6 @@ const professionalQuals = [
     reg: '002410846',
     status: 'In Progress',
     desc: 'Actively preparing for Chartered Accountants Sri Lanka intermediate examinations, building expertise in corporate finance, auditing, and business laws.',
-    icon: '🏛️',
     completed: false,
     highlight: true, // Orange Highlight
   },
@@ -27,7 +25,6 @@ const professionalQuals = [
     org: 'British Council',
     status: 'Completed',
     desc: 'Completed advanced English modules to sharpen verbal reasoning, professional presentation, and corporate communication skills.',
-    icon: '🗣️',
     completed: true,
     highlight: false,
   }
@@ -39,7 +36,6 @@ const technicalQuals = [
     org: 'GitHub',
     date: 'April 2026',
     desc: 'Certified in remote version control setups, branch merging rules, pull requests coordination, and repository tracking workflows.',
-    icon: '🐙',
     highlight: false,
   },
   {
@@ -47,7 +43,6 @@ const technicalQuals = [
     org: 'Simplilearn',
     date: 'April 2026',
     desc: 'Learned foundational frameworks of MongoDB, Express.js, React, and Node.js to bridge business needs with database web models.',
-    icon: '💻',
     highlight: false,
   },
   {
@@ -55,7 +50,6 @@ const technicalQuals = [
     org: 'Software Engineering Student Community – SLIIT',
     date: 'February 2026',
     desc: 'Participated in hands-on workshops on code management, agile tracking systems, and developer-to-analyst workflow pipelines.',
-    icon: '🎓',
     highlight: true, // Orange Highlight
   }
 ];
@@ -88,12 +82,12 @@ function Certifications() {
 
         {/* ─── Category 1: Professional Qualifications ─── */}
         <div className="space-y-6 mb-16">
-          <h3 className="font-poppins text-xl font-bold text-white text-left flex items-center gap-2">
-            <span>💼</span> Professional & Financial Qualifications
+          <h3 className="font-poppins text-xl font-bold text-white text-left">
+            Professional & Financial Qualifications
           </h3>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {professionalQuals.map((qual) => {
+            {professionalQuals.map((qual, i) => {
               const isOrange = qual.highlight;
               return (
                 <div
@@ -104,11 +98,10 @@ function Certifications() {
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl">{qual.icon}</span>
                       <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full ${
                         qual.completed
                           ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                          : 'bg-brand-orange/10 text-brand-orange border border-brand-orange/20' /* Orange Highlight */
+                          : 'bg-brand-orange/10 text-brand-orange border border-brand-orange/20'
                       }`}>
                         {qual.status}
                       </span>
@@ -140,12 +133,12 @@ function Certifications() {
 
         {/* ─── Category 2: Digital & Technical Certifications ─── */}
         <div className="space-y-6">
-          <h3 className="font-poppins text-xl font-bold text-white text-left flex items-center gap-2">
-            <span>🐙</span> Digital & Technical Credentials
+          <h3 className="font-poppins text-xl font-bold text-white text-left">
+            Digital & Technical Credentials
           </h3>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {technicalQuals.map((qual) => {
+            {technicalQuals.map((qual, i) => {
               const isOrange = qual.highlight;
               return (
                 <div
@@ -156,7 +149,6 @@ function Certifications() {
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl">{qual.icon}</span>
                       <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full border ${
                         isOrange 
                           ? 'bg-brand-orange/10 text-brand-orange border border-brand-orange/20' 

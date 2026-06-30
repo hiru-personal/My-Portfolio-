@@ -9,7 +9,6 @@ const projects = [
     activities: ['Requirements Gathering', 'SRS Documentation', 'Budget Analytics'],
     impact: '35% Real-Time Construction Visibility Boost',
     tags: ['Agile / Jira', 'Confluence', 'SRS', 'Wireframes'],
-    icon: '📊',
     highlight: false
   },
   {
@@ -19,7 +18,6 @@ const projects = [
     activities: ['Requirement Analysis', 'Wireframing', 'SRS Documentation'],
     impact: '20% Reduction in Approval Lead Times',
     tags: ['Figma', 'BPMN 2.0', 'SRS', 'Workflows'],
-    icon: '📂',
     highlight: true // Orange highlight
   },
   {
@@ -29,7 +27,6 @@ const projects = [
     activities: ['Organizational Analysis', 'Stakeholder Meetings', 'KPI Support'],
     impact: 'Optimized Administrative Capacity Allocations',
     tags: ['Stakeholder alignment', 'KPI Modeling', 'Visio'],
-    icon: '👥',
     highlight: false
   },
   {
@@ -39,7 +36,6 @@ const projects = [
     activities: ['Requirement Gathering', 'Documentation', 'Figma Wireframes'],
     impact: '40% Survey Data Entry Velocity Gain',
     tags: ['Figma', 'Data Modeling', 'Mobile UI Mockups'],
-    icon: '🚌',
     highlight: false
   },
   {
@@ -49,7 +45,6 @@ const projects = [
     activities: ['SQL', 'Business Analysis', 'Prototype Development'],
     impact: 'Automated Route Optimization & Path Checks',
     tags: ['SQL Querying', 'Database Diagrams', 'Prototyping'],
-    icon: '⚡',
     highlight: true // Orange highlight
   },
   {
@@ -59,7 +54,6 @@ const projects = [
     activities: ['Requirements Analysis', 'Prototype Development', 'Workflow Design'],
     impact: '25% Civic Query Resolution Speed-up',
     tags: ['User Flows', 'Interactive Prototypes', 'Workshops'],
-    icon: '🤝',
     highlight: false
   }
 ];
@@ -107,10 +101,10 @@ function Experience() {
 
             <div className="text-left md:text-right font-poppins text-xs font-semibold">
               <p className="text-brand-purple uppercase tracking-wider font-bold">
-                🗓️ 2026 - Present
+                2026 - Present
               </p>
               <p className="text-brand-dark-textMuted mt-1">
-                📍 Colombo, Sri Lanka
+                Colombo, Sri Lanka
               </p>
             </div>
           </div>
@@ -143,11 +137,6 @@ function Experience() {
                 }`}>
                   <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                     <div className="flex items-center gap-3">
-                      <span className={`text-2xl w-10 h-10 rounded-xl flex items-center justify-center ${
-                        isHighlight ? 'bg-brand-orange/10' : 'bg-brand-purple/10'
-                      }`}>
-                        {project.icon}
-                      </span>
                       <div>
                         <h4 className="font-poppins text-lg md:text-xl font-bold text-white">
                           {project.title}
@@ -160,7 +149,7 @@ function Experience() {
 
                     {/* Impact KPI Tag */}
                     <span className="font-poppins text-[10px] font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full">
-                      📈 {project.impact}
+                      Impact: {project.impact}
                     </span>
                   </div>
 
