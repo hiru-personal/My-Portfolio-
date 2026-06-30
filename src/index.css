@@ -16,12 +16,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 90px;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  background-color: #0F0F14;
+  color: #FFFFFF;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,6 +36,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ================================================
+   Grid Background & Glows
+   ================================================ */
+
+.bg-grid {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+}
+
+/* ================================================
    Custom Scrollbar
    ================================================ */
 
@@ -43,29 +55,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #0F0F14;
 }
 
-body.dark ::-webkit-scrollbar-track,
-.dark ::-webkit-scrollbar-track {
-  background: #111111;
-}
-
-body ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #5B8DEF, #FFD6E7);
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #A855F7, #C084FC);
   border-radius: 9999px;
-  border: 2px solid #F5F7FA;
-}
-
-body.dark ::-webkit-scrollbar-thumb,
-.dark ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #2A63D2, #FCA5D9);
-  border-radius: 9999px;
-  border: 2px solid #111111;
+  border: 2px solid #0F0F14;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #2A63D2, #FFD6E7);
+  background: linear-gradient(180deg, #C084FC, #F59E0B);
 }
 
 /* ================================================
@@ -73,12 +73,7 @@ body.dark ::-webkit-scrollbar-thumb,
    ================================================ */
 
 ::selection {
-  background-color: rgba(91, 141, 239, 0.25);
-  color: #111111;
-}
-
-.dark ::selection {
-  background-color: rgba(252, 165, 217, 0.2);
+  background-color: rgba(168, 85, 247, 0.25);
   color: #FFFFFF;
 }
 
@@ -88,94 +83,93 @@ body.dark ::-webkit-scrollbar-thumb,
 
 @keyframes float1 {
   0%, 100% {
-    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    transform: translateY(0px) rotate(0deg) scale(1);
   }
   50% {
-    transform: translateY(-40px) translateX(30px) rotate(90deg) scale(1.1);
+    transform: translateY(-20px) rotate(5deg) scale(1.05);
   }
 }
 
 @keyframes float2 {
   0%, 100% {
-    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1.05);
+    transform: translateY(0px) rotate(0deg) scale(1.05);
   }
   50% {
-    transform: translateY(50px) translateX(-40px) rotate(-90deg) scale(0.95);
+    transform: translateY(25px) rotate(-5deg) scale(0.95);
   }
 }
 
-@keyframes glow-move-pink {
+@keyframes glow-move-orange {
   0%, 100% {
     transform: translate(0px, 0px) scale(1);
   }
   50% {
-    transform: translate(60px, -60px) scale(1.25);
+    transform: translate(30px, -30px) scale(1.15);
   }
 }
 
-@keyframes glow-move-blue {
+@keyframes glow-move-purple {
   0%, 100% {
-    transform: translate(0px, 0px) scale(1.1);
+    transform: translate(0px, 0px) scale(1);
   }
   50% {
-    transform: translate(-60px, 60px) scale(0.9);
+    transform: translate(-30px, 30px) scale(1.15);
   }
 }
 
 .animate-float-1 {
-  animation: float1 24s infinite alternate ease-in-out;
+  animation: float1 15s infinite alternate ease-in-out;
 }
 
 .animate-float-2 {
-  animation: float2 28s infinite alternate ease-in-out;
+  animation: float2 18s infinite alternate ease-in-out;
 }
 
-.animate-glow-pink {
-  animation: glow-move-pink 18s infinite alternate ease-in-out;
+.animate-glow-orange {
+  animation: glow-move-orange 12s infinite alternate ease-in-out;
 }
 
-.animate-glow-blue {
-  animation: glow-move-blue 22s infinite alternate ease-in-out;
+.animate-glow-purple {
+  animation: glow-move-purple 14s infinite alternate ease-in-out;
+}
+
+/* Pulse animation for decorative circles */
+@keyframes orbit-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 0.8;
+  }
+}
+
+.animate-orbit-pulse {
+  animation: orbit-pulse 4s infinite ease-in-out;
 }
 
 /* ================================================
-   Glassmorphism System
+   Glassmorphism System (SaaS Landing Style)
    ================================================ */
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(23, 23, 34, 0.45);
   backdrop-filter: blur(20px) saturate(1.8);
   -webkit-backdrop-filter: blur(20px) saturate(1.8);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   box-shadow: 
-    0 4px 30px rgba(0, 0, 0, 0.03),
-    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    0 10px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.01);
   transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dark .glass-panel {
-  background: rgba(17, 17, 17, 0.6);
-  backdrop-filter: blur(20px) saturate(1.6);
-  -webkit-backdrop-filter: blur(20px) saturate(1.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.3),
-    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  border-radius: 18px; /* Rounded corners 18px as requested */
 }
 
 .glass-nav {
-  background: rgba(245, 247, 250, 0.7);
+  background: rgba(15, 15, 20, 0.75);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  transition: background-color 0.5s ease, border-color 0.5s ease;
-}
-
-.dark .glass-nav {
-  background: rgba(17, 17, 17, 0.75);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .glass-card-hover {
@@ -184,19 +178,11 @@ body.dark ::-webkit-scrollbar-thumb,
 
 .glass-card-hover:hover {
   transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.6);
-  border-color: rgba(91, 141, 239, 0.4);
+  background: rgba(23, 23, 34, 0.65);
+  border-color: rgba(168, 85, 247, 0.3);
   box-shadow: 
-    0 20px 40px rgba(91, 141, 239, 0.08),
-    0 4px 12px rgba(0, 0, 0, 0.02);
-}
-
-.dark .glass-card-hover:hover {
-  background: rgba(25, 25, 25, 0.7);
-  border-color: rgba(252, 165, 217, 0.3);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    0 4px 20px rgba(252, 165, 217, 0.03);
+    0 20px 40px rgba(168, 85, 247, 0.04),
+    0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* ================================================
@@ -259,12 +245,8 @@ body.dark ::-webkit-scrollbar-thumb,
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.012;
+  opacity: 0.015;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 99;
-}
-
-.dark .noise-overlay::after {
-  opacity: 0.022;
 }

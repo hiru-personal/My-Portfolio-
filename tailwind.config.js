@@ -12,23 +12,18 @@ export default {
         inter: ['Inter', 'sans-serif'],
       },
       colors: {
-        ba: {
-          pink: {
-            DEFAULT: '#FFD6E7',
-            light: '#FFF0F6',
-            dark: '#FCA5D9',
+        brand: {
+          purple: {
+            DEFAULT: '#A855F7',
+            secondary: '#C084FC',
           },
-          blue: {
-            DEFAULT: '#5B8DEF',
-            light: '#84ACFA',
-            dark: '#2A63D2',
+          orange: {
+            DEFAULT: '#F59E0B',
           },
-          dark: '#111111',
-          light: '#F5F7FA',
-          white: '#FFFFFF',
-          slate: {
-            800: '#1e293b',
-            900: '#0f172a',
+          dark: {
+            bg: '#0F0F14',
+            card: '#171722',
+            textMuted: '#B8B8C5',
           }
         }
       },

@@ -10,30 +10,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) return savedTheme;
-      const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      return userPrefersDark ? 'dark' : 'light';
-    }
-    return 'light';
-  });
-
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-
-  // Handle Theme Switching
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
 
   // Handle scroll class addition for navbar
   useEffect(() => {
@@ -85,115 +64,98 @@ function App() {
     { label: 'Contact', href: '#contact' },
   ];
 
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
-  };
-
   return (
-    <div className="min-h-screen transition-colors duration-500 bg-ba-light dark:bg-ba-dark text-ba-dark dark:text-ba-light overflow-hidden relative noise-overlay">
-      {/* ─── Premium Animated Glow Background ─── */}
+    <div className="min-h-screen bg-brand-dark-bg text-white bg-grid overflow-hidden relative noise-overlay">
+      {/* ─── Premium Animated Glow Background (Purple Glows & Subtle Orange Highlights) ─── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Soft Pink Glowing Blob */}
-        <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] max-w-[800px] rounded-full bg-ba-pink/35 dark:bg-ba-pink/15 blur-[120px] animate-glow-pink" />
+        {/* Soft Purple Glow Top Left */}
+        <div className="absolute top-[-15%] left-[-15%] w-[65vw] h-[65vw] max-w-[800px] rounded-full bg-brand-purple/12 blur-[140px] animate-glow-purple" />
 
-        {/* Professional Blue Glowing Blob */}
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] max-w-[800px] rounded-full bg-ba-blue/30 dark:bg-ba-blue/12 blur-[120px] animate-glow-blue" />
+        {/* Soft Purple Glow Bottom Right */}
+        <div className="absolute bottom-[-15%] right-[-15%] w-[65vw] h-[65vw] max-w-[800px] rounded-full bg-brand-purple/10 blur-[140px] animate-glow-purple" />
+
+        {/* Subtle Orange Highlight Glow in the Center */}
+        <div className="absolute top-[35%] right-[20%] w-[35vw] h-[35vw] max-w-[400px] rounded-full bg-brand-orange/4 blur-[120px] animate-glow-orange" />
 
         {/* Floating Blurred Glass Shapes */}
-        <div className="absolute top-[25%] left-[5%] w-32 h-32 rounded-full glass-panel backdrop-blur-md animate-float-1 hidden md:block" />
-        <div className="absolute bottom-[35%] right-[8%] w-48 h-48 rounded-full glass-panel backdrop-blur-lg animate-float-2 hidden md:block" />
-        <div className="absolute top-[65%] left-[8%] w-24 h-24 rounded-full glass-panel backdrop-blur-sm animate-float-2 hidden lg:block" />
+        <div className="absolute top-[25%] left-[5%] w-32 h-32 rounded-[18px] glass-panel backdrop-blur-md animate-float-1 hidden md:block" />
+        <div className="absolute bottom-[35%] right-[8%] w-48 h-48 rounded-[18px] glass-panel backdrop-blur-lg animate-float-2 hidden md:block" />
       </div>
 
       {/* ─── Sticky Header / Navigation ─── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? 'glass-nav shadow-lg shadow-black/[0.02] py-4'
+          ? 'glass-nav shadow-lg shadow-black/[0.2] py-4'
           : 'bg-transparent py-6'
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          {/* Brand Logo */}
+          {/* Brand Logo (Matching Screenshot HD initials logo style with Purple Gradient) */}
           <a
             href="#hero"
-            className="group font-poppins text-lg md:text-xl font-extrabold tracking-tight text-ba-dark dark:text-ba-white transition-colors duration-300"
+            className="flex items-center gap-2.5 font-poppins group"
           >
-            <span>D.H.HIRUNI DISSANAYAKE</span>
-            <span className="inline-block w-2.5 h-2.5 ml-1 rounded-full bg-gradient-to-r from-ba-blue to-ba-pink animate-pulse" />
+            <div className="w-10 h-10 rounded-[18px] bg-gradient-to-tr from-brand-purple to-brand-purple-secondary flex items-center justify-center font-extrabold text-white text-base tracking-tight shadow-md shadow-brand-purple/20 transition-transform duration-300 group-hover:scale-105">
+              HD
+            </div>
+            <span className="text-base md:text-lg font-bold tracking-tight text-white transition-colors duration-300">
+              Hiruni Dissanayake
+            </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
-            <ul className="flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-8">
+            <ul className="flex items-center gap-2">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.slice(1);
                 return (
-                  <li key={link.href}>
+                  <li key={link.href} className="relative py-2">
                     <a
                       href={link.href}
-                      className={`relative font-poppins text-xs font-semibold uppercase tracking-wider px-3 py-2 rounded-lg transition-all duration-300 ${isActive
-                        ? 'text-ba-blue dark:text-ba-blue-light bg-ba-blue/10 dark:bg-ba-blue/20'
-                        : 'text-ba-dark/65 dark:text-ba-light/65 hover:text-ba-blue dark:hover:text-ba-blue-light hover:bg-ba-blue/5'
+                      className={`font-poppins text-xs font-semibold uppercase tracking-wider px-3.5 py-2 transition-all duration-300 ${isActive
+                        ? 'text-white font-bold'
+                        : 'text-white/60 hover:text-white'
                         }`}
                     >
                       {link.label}
                     </a>
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-brand-purple" />
+                    )}
                   </li>
                 );
               })}
             </ul>
 
-            {/* Light/Dark Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl glass-panel text-ba-dark dark:text-ba-white hover:scale-105 active:scale-95 transition-all duration-300"
-              aria-label="Toggle display theme"
+            {/* Let's Connect Pill Button (Gradient) */}
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-purple to-brand-purple-secondary hover:opacity-90 text-white font-poppins text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-full shadow-lg shadow-brand-purple/15 transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
             >
-              {theme === 'light' ? (
-                <svg className="w-5 h-5 transition-transform duration-500 hover:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 transition-transform duration-500 hover:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-                </svg>
-              )}
-            </button>
+              Let's Connect
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </a>
           </div>
 
-          {/* Mobile Actions (Toggle + Menu Button) */}
-          <div className="lg:hidden flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg glass-panel text-ba-dark dark:text-ba-white"
-              aria-label="Toggle display theme"
-            >
-              {theme === 'light' ? (
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              ) : (
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-                </svg>
-              )}
-            </button>
-
+          {/* Mobile Actions Menu Button */}
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="flex flex-col gap-[5px] p-2 focus:outline-none"
               aria-label="Toggle navigation menu"
             >
               <span
-                className={`block w-6 h-[2px] bg-ba-dark dark:bg-ba-white rounded-full transition-all duration-300 origin-center ${mobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
+                className={`block w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center ${mobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
                   }`}
               />
               <span
-                className={`block w-6 h-[2px] bg-ba-dark dark:bg-ba-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'opacity-0 scale-x-0' : ''
+                className={`block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'opacity-0 scale-x-0' : ''
                   }`}
               />
               <span
-                className={`block w-6 h-[2px] bg-ba-dark dark:bg-ba-white rounded-full transition-all duration-300 origin-center ${mobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
+                className={`block w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center ${mobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
                   }`}
               />
             </button>
@@ -205,7 +167,7 @@ function App() {
           className={`lg:hidden overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${mobileMenuOpen ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0'
             }`}
         >
-          <ul className="glass-panel mx-4 rounded-3xl p-6 flex flex-col gap-2 shadow-xl">
+          <ul className="glass-panel mx-4 rounded-[18px] p-6 flex flex-col gap-2 shadow-xl border border-white/5 bg-brand-dark-card/90">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.slice(1);
               return (
@@ -214,8 +176,8 @@ function App() {
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block font-poppins text-sm font-semibold uppercase tracking-wider px-4 py-3 rounded-xl transition-all duration-300 ${isActive
-                      ? 'text-ba-blue dark:text-ba-blue-light bg-ba-blue/10 dark:bg-ba-blue/20'
-                      : 'text-ba-dark/70 dark:text-ba-light/70 hover:text-ba-blue hover:bg-ba-blue/5'
+                      ? 'text-white bg-brand-purple/20 border-l-4 border-brand-purple'
+                      : 'text-white/70 hover:text-white hover:bg-white/5'
                       }`}
                   >
                     {link.label}
@@ -223,6 +185,18 @@ function App() {
                 </li>
               );
             })}
+            <li className="pt-2">
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-1.5 w-full bg-gradient-to-r from-brand-purple to-brand-purple-secondary text-white font-poppins text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl shadow-lg transition-all duration-300"
+              >
+                Let's Connect
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -230,19 +204,19 @@ function App() {
       {/* ─── Portfolio Main Layout Sections ─── */}
       <main className="relative z-10">
         <Hero />
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-ba-blue/15 to-transparent dark:via-white/5" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-brand-purple/15 to-transparent" />
         <About />
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-ba-blue/15 to-transparent dark:via-white/5" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-brand-purple/15 to-transparent" />
         <Skills />
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-ba-blue/15 to-transparent dark:via-white/5" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-brand-purple/15 to-transparent" />
         <Experience />
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-ba-blue/15 to-transparent dark:via-white/5" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-brand-purple/15 to-transparent" />
         <Projects />
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-ba-blue/15 to-transparent dark:via-white/5" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-brand-purple/15 to-transparent" />
         <Education />
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-ba-blue/15 to-transparent dark:via-white/5" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-brand-purple/15 to-transparent" />
         <Certifications />
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-ba-blue/15 to-transparent dark:via-white/5" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-brand-purple/15 to-transparent" />
         <Contact />
       </main>
 
