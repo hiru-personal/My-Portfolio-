@@ -14,6 +14,16 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
+  // Track mouse position for the subtle glowing cursor effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   // Handle scroll class addition for navbar
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -66,6 +76,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-brand-dark-bg text-white bg-grid overflow-hidden relative noise-overlay">
+      {/* Subtle Mouse-Following Purple Glow */}
+      <div className="mouse-glow" />
+
       {/* ─── Premium Animated Glow Background (Purple Glows & Subtle Orange Highlights) ─── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Soft Purple Glow Top Left */}

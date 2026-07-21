@@ -250,3 +250,21 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
   z-index: 99;
 }
+
+/* ================================================
+   Interactive Mouse-Following Purple Glow
+   ================================================ */
+
+.mouse-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  background: radial-gradient(
+    600px at var(--mouse-x, -1000px) var(--mouse-y, -1000px),
+    rgba(168, 85, 247, 0.06),
+    transparent 80%
+  );
+  transition: opacity 0.3s ease;
+}
+
