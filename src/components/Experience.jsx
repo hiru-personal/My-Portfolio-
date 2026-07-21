@@ -30,12 +30,39 @@ const projects = [
     highlight: false
   },
   {
+    title: 'Highway Letter Management System',
+    subtitle: 'Digital Letter Processing & Tracking System',
+    description: 'Developed a web-based, mobile-responsive Letter Management System for the Highways Division of the Ministry of Transport, Highways and Urban Development, Sri Lanka. The system digitizes the complete lifecycle of official correspondence, replacing manual Excel-based tracking with an automated workflow for letter registration, routing, tracking, and closure.',
+    activities: ['Contributed to requirement engineering, prototype design, and system documentation to support the development of an efficient correspondence management solution with improved visibility, accountability, and workflow control.'],
+    impact: 'Replaced Manual Excel-Based Tracking with a Centralized Digital Workflow',
+    tags: ['Business Analysis', 'Requirements Engineering', 'SRS', 'UML', 'Prototype Design', 'Workflow Automation', 'Document Management'],
+    highlight: false
+  },
+  {
     title: 'Transport Data Collection Platform',
     subtitle: 'Commuter survey metrics mobile portal',
     description: 'Gathered requirements for passenger statistics metrics. Documented user roles and data collection parameters, and wireframed responsive mobile web forms in Figma for field surveyors.',
     activities: ['Requirement Gathering', 'Documentation', 'Figma Wireframes'],
     impact: '40% Survey Data Entry Velocity Gain',
     tags: ['Figma', 'Data Modeling', 'Mobile UI Mockups'],
+    highlight: false
+  },
+  {
+    title: 'Railway Letter Management System (LMS)',
+    subtitle: 'Digital Correspondence User Tracking & Workflow Management System',
+    description: 'Developed a web-based Letter Management System for the Letter Department of Sri Lanka Railways to replace manual paper-based letter registers with a centralized digital solution. The system enables incoming letter registration, reply and approval tracking, document management, reminder handling, recipient routing, and activity monitoring through dashboards and audit history.',
+    activities: ['Involved throughout the software development lifecycle, including requirement analysis, workflow design, documentation, application development, and QA testing to ensure a reliable and efficient correspondence management solution.'],
+    impact: 'Improved Letter Tracking and Administrative Workflow Efficiency',
+    tags: ['Business Analysis', 'Requirement Analysis', 'Workflow Design', 'Documentation', 'Application Development', 'QA Testing'],
+    highlight: false
+  },
+   {
+    title: 'Railway Headquarters Letter Management System (LMS)',
+    subtitle: 'Digital Letter Registration & Tracking Management System',
+    description: 'Developed a web-based Letter Management System for Railway Headquarters to digitize the existing manual paper-based letter registration process. The system replaces multiple physical register books with a centralized digital platform for recording, searching, tracking, and managing incoming and outgoing correspondence while maintaining existing business processes and register structures.',
+    activities: ['Contributed throughout the software development lifecycle by participating in requirement gathering, business process analysis, system design, documentation, development, and quality assurance activities to deliver an efficient and reliable correspondence management solution.'],
+    impact: 'Digitized Manual Letter Processes and Enhanced Correspondence Tracking Efficiency',
+    tags: ['Business Analysis • Software Development • Quality Assurance • Requirement Engineering • BRP Documentation • SRS Documentation • UML Modeling • Database Design • Workflow Automation • Document Management'],
     highlight: false
   },
   {
@@ -55,7 +82,34 @@ const projects = [
     impact: '25% Civic Query Resolution Speed-up',
     tags: ['User Flows', 'Interactive Prototypes', 'Workshops'],
     highlight: false
-  }
+  },
+  {
+    title: 'Highway Toll Management System',
+    subtitle: 'UML Modeling',
+    description: 'Designed UML models for a Highway Toll Management System. Created system workflows and architectural diagrams to represent vehicle processing, toll collection operations, payment handling, and interactions between system users and components.',
+    activities: ['SRS Analysis','UML Modeling','System Workflow Modeling'],
+    impact: 'Improved understanding of toll operations through structured system modeling and workflow visualization.',
+    tags: ['UserCase Diagrams','Activity diagrams','Workflow Diagrams'],
+    highlight: false
+  },
+  {
+    title: 'RDA Construction Personnel Attendance System',
+    subtitle: 'UML Modeling',
+    description: 'Created system models to represent attendance processes, user roles and system workflows.',
+    activities: ['SRS Analysis','UML Modeling','System Workflow Modeling'],
+    impact:'Supported efficient attendance management through clear system analysis and design diagrams .',
+    tags: ['UserCase Diagrams','Activity diagrams','Workflow Diagrams'],
+    highlight: false
+  },
+  {
+    title: 'ETF(Employees Trust Fund ) Taxi System',
+    subtitle: 'UML Modeling',
+    description: 'Converted TOR requirements into UML models to define workflows, system interactions',
+    activities: ['SRS Analysis','UML Modeling','System Workflow Modeling'],
+    impact: 'Assisted system analysis and design activities by creating UML diagrams based on identified business requirements.',
+    tags: ['UserCase Diagrams','Activity diagrams','Workflow Diagrams'],
+    highlight: false
+  },
 ];
 
 function Experience() {

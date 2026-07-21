@@ -61,10 +61,10 @@ function Hero() {
 
             {/* Headline / Intro Statement */}
             <p className="reveal font-inter text-sm sm:text-base text-brand-dark-textMuted leading-relaxed font-normal max-w-2xl">
-              I'm an IT undergraduate with a passion for solving real world problems through technology. I specialize in business analysis, project management, and quality assurance to deliver solutions that create value for users and organizations.
+              I'm an Information Systems Engineering undergraduate with a passion for solving real world problems through technology. I specialize in business analysis, project management, and quality assurance to deliver solutions that create value for users and organizations.
             </p>
             <p className="reveal font-inter text-sm sm:text-base text-brand-dark-textMuted leading-relaxed font-normal max-w-2xl">
-              I enjoy working on end-to-end projects — from understanding business needs to delivering efficient, user-friendly solutions.
+              I enjoy working on end-to-end projects - from understanding business needs to delivering efficient, user-friendly solutions.
             </p>
 
             {/* Pill Tags (SaaS style with purple and orange highlights) */}
