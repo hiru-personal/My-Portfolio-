@@ -25,10 +25,11 @@ function Hero() {
   const sectionRef = useScrollReveal({ threshold: 0.1 });
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
-  const handleDownloadAndPreview = () => {
+  const handleDownloadAndPreview = (e) => {
+    e?.preventDefault();
     setIsResumeOpen(true);
     const link = document.createElement('a');
-    link.href = '/Hiruni_Dissanayake_CV_v2.pdf';
+    link.href = '/Hiruni_Dissanayake_CV_v2.pdf?v=2';
     link.download = 'Hiruni_Dissanayake_CV_v2.pdf';
     document.body.appendChild(link);
     link.click();
@@ -124,7 +125,9 @@ function Hero() {
                 </svg>
               </a>
 
-              <button
+              <a
+                href="/Hiruni_Dissanayake_CV_v2.pdf?v=2"
+                download="Hiruni_Dissanayake_CV_v2.pdf"
                 onClick={handleDownloadAndPreview}
                 className="group inline-flex items-center justify-center gap-2 bg-transparent border border-white/10 hover:border-brand-purple text-white font-poppins font-semibold text-xs uppercase tracking-wider px-7 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-purple/5 cursor-pointer"
               >
@@ -132,7 +135,7 @@ function Hero() {
                 <svg className="w-4 h-4 text-white/60 group-hover:text-brand-purple transition-colors" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
-              </button>
+              </a>
             </div>
 
             {/* Find Me Social Links */}
