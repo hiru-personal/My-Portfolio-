@@ -25,10 +25,32 @@ function Hero() {
   const sectionRef = useScrollReveal({ threshold: 0.1 });
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
-  // Resume details print handler
-  const handlePrint = () => {
-    window.print();
+  const handleDownloadAndPreview = () => {
+    setIsResumeOpen(true);
+    const link = document.createElement('a');
+    link.href = '/Hiruni_Dissanayake_CV_v2.pdf';
+    link.download = 'Hiruni_Dissanayake_CV_v2.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
+
+  // Close modal on ESC key press & body scroll locking
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsResumeOpen(false);
+      }
+    };
+    if (isResumeOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isResumeOpen]);
 
   return (
     <section
@@ -103,8 +125,8 @@ function Hero() {
               </a>
 
               <button
-                onClick={() => setIsResumeOpen(true)}
-                className="group inline-flex items-center justify-center gap-2 bg-transparent border border-white/10 hover:border-brand-purple text-white font-poppins font-semibold text-xs uppercase tracking-wider px-7 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-purple/5"
+                onClick={handleDownloadAndPreview}
+                className="group inline-flex items-center justify-center gap-2 bg-transparent border border-white/10 hover:border-brand-purple text-white font-poppins font-semibold text-xs uppercase tracking-wider px-7 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-purple/5 cursor-pointer"
               >
                 Download CV
                 <svg className="w-4 h-4 text-white/60 group-hover:text-brand-purple transition-colors" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -263,126 +285,112 @@ function Hero() {
         </div>
       </div>
 
-      {/* ─── Interactive Resume Modal ─── */}
+      {/* ─── PDF Curriculum Vitae Preview & Download Modal ─── */}
       {isResumeOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-dark-bg/85 backdrop-blur-md transition-opacity duration-300">
-          <div className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto glass-panel p-8 sm:p-10 rounded-[18px] shadow-2xl bg-brand-dark-card border border-white/10 flex flex-col justify-between">
-            {/* Close Button */}
-            <button
-              onClick={() => setIsResumeOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 hover:scale-105 active:scale-95 transition-all text-white"
-              aria-label="Close modal"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            {/* Print View Wrapper */}
-            <div id="resume-print-area" className="space-y-6 text-left">
-              <div>
-                <h3 className="font-poppins text-3xl font-extrabold text-white">
-                  Hiruni Dissanayake
-                </h3>
-                <p className="font-poppins text-sm font-semibold uppercase tracking-wider text-brand-purple mt-1">
-                  Business Analyst | IT Business Analyst
-                </p>
+        <div
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setIsResumeOpen(false);
+          }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md transition-opacity duration-300 animate-fadeIn"
+        >
+          <div className="relative w-full max-w-5xl h-[92vh] sm:h-[88vh] glass-panel p-4 sm:p-6 rounded-[22px] shadow-2xl bg-brand-dark-card border border-white/10 flex flex-col overflow-hidden">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-brand-purple/15 border border-brand-purple/30 flex items-center justify-center text-brand-purple">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-poppins text-base sm:text-lg font-bold text-white leading-tight flex items-center gap-2">
+                    <span>Hiruni Dissanayake CV</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-purple/20 text-brand-purple font-medium border border-brand-purple/30">
+                      PDF Document
+                    </span>
+                  </h3>
+                  <p className="font-inter text-xs text-brand-dark-textMuted hidden sm:block">
+                    Business Analyst • Project Manager • Quality Assurance
+                  </p>
+                </div>
               </div>
 
-              <div className="h-[1px] bg-white/5" />
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                {/* Download PDF Button */}
+                <a
+                  href="/Hiruni_Dissanayake_CV_v2.pdf"
+                  download="Hiruni_Dissanayake_CV_v2.pdf"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-purple to-brand-purple-secondary hover:opacity-95 text-white font-poppins font-semibold text-xs uppercase tracking-wider px-4 sm:px-6 py-2.5 rounded-full shadow-lg shadow-brand-purple/20 transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  <span>Download CV</span>
+                </a>
 
-              <div className="grid md:grid-cols-12 gap-8 text-sm">
-                {/* Left Side: Contact, Education, Skills */}
-                <div className="md:col-span-5 space-y-6">
-                  <div>
-                    <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-brand-purple mb-2">
-                      Contact Info
-                    </h4>
-                    <p className="text-xs text-brand-dark-textMuted leading-relaxed">
-                      Email: hirunidissanayake116@gmail.com
-                      <br />
-                      LinkedIn: linkedin.com/in/hiruni-dissanayake-2a7a65396
-                      <br />
-                      Address: Colombo, Sri Lanka
-                    </p>
-                  </div>
+                {/* Open in New Tab */}
+                <a
+                  href="/Hiruni_Dissanayake_CV_v2.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden md:inline-flex items-center justify-center gap-1.5 bg-white/5 hover:bg-white/10 text-white font-poppins font-semibold text-xs uppercase tracking-wider px-4 py-2.5 rounded-full border border-white/10 transition-all duration-300"
+                  title="Open PDF in new browser tab"
+                >
+                  <svg className="w-4 h-4 text-brand-dark-textMuted" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                  <span>Open PDF</span>
+                </a>
 
-                  <div>
-                    <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-brand-purple mb-2">
-                      Education
-                    </h4>
-                    <p className="text-xs font-semibold text-white">
-                      BSc (Hons) in Information Technology
-                    </p>
-                    <p className="text-[11px] text-brand-dark-textMuted">
-                      Specializing in Information Systems Engineering
-                      <br />
-                      SLIIT • Undergraduate (Present)
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-brand-purple mb-2">
-                      Core BA Toolkit
-                    </h4>
-                    <ul className="text-xs text-brand-dark-textMuted space-y-1 list-disc pl-4">
-                      <li>Requirements Gathering</li>
-                      <li>Stakeholder Management</li>
-                      <li>Wireframing (Figma / Draw.io)</li>
-                      <li>System Documentation (SRS / UML)</li>
-                      <li>Agile / Scrum Backlogs</li>
-                      <li>SQL & Data Analysis</li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Right Side: Experience */}
-                <div className="md:col-span-7 space-y-6">
-                  <div>
-                    <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-brand-purple mb-2">
-                      Professional Statement
-                    </h4>
-                    <p className="text-xs text-brand-dark-textMuted leading-relaxed">
-                      Motivated Information Systems Engineering undergraduate with strong foundational competencies in bridging business problems with scalable IT specifications. Experienced in documenting system flows, managing backlogs, and liaising between engineers and government agencies.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-brand-purple mb-2">
-                      Experience Highlight
-                    </h4>
-                    <div className="space-y-2">
-                      <div>
-                        <p className="text-xs font-semibold text-white">
-                          Business Analyst Intern
-                        </p>
-                        <p className="text-[11px] text-brand-purple font-medium">
-                          Road Development Authority (RDA) • 2026 - Present
-                        </p>
-                        <p className="text-xs text-brand-dark-textMuted leading-relaxed mt-1">
-                          Analyzing process pipelines for public infrastructure portals, drafting system requirements, and facilitating Agile ceremonies under cross-agency IT projects.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/* Close Modal Button */}
+                <button
+                  onClick={() => setIsResumeOpen(false)}
+                  className="p-2 sm:p-2.5 rounded-full bg-white/5 hover:bg-white/15 hover:scale-105 active:scale-95 transition-all text-white/80 hover:text-white"
+                  aria-label="Close modal"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
               </div>
             </div>
 
-            {/* Modal Actions */}
-            <div className="flex justify-end gap-3 mt-8 pt-4 border-t border-white/5">
-              <button
-                onClick={() => setIsResumeOpen(false)}
-                className="font-poppins font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition text-white"
-              >
-                Close
-              </button>
-              <button
-                onClick={handlePrint}
-                className="font-poppins font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl bg-gradient-to-r from-brand-purple to-brand-purple-secondary text-white shadow-md shadow-brand-purple/10"
-              >
-                Print / Save PDF
-              </button>
+            {/* Modal Body: PDF Preview Container */}
+            <div className="flex-1 w-full mt-3 sm:mt-4 rounded-xl overflow-hidden bg-slate-950/80 border border-white/10 relative">
+              <iframe
+                src="/Hiruni_Dissanayake_CV_v2.pdf#toolbar=1"
+                title="Hiruni Dissanayake CV Preview"
+                className="w-full h-full border-0 rounded-xl"
+              />
+            </div>
+
+            {/* Modal Footer */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mt-3 pt-3 border-t border-white/10 px-1 text-xs text-brand-dark-textMuted">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Hiruni_Dissanayake_CV_v2.pdf (Official Document)</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <a
+                  href="/Hiruni_Dissanayake_CV_v2.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors underline sm:hidden text-[11px]"
+                >
+                  Open PDF in New Tab
+                </a>
+                <a
+                  href="/Hiruni_Dissanayake_CV_v2.pdf"
+                  download="Hiruni_Dissanayake_CV_v2.pdf"
+                  className="font-poppins font-semibold text-brand-purple hover:text-brand-purple-secondary transition-colors flex items-center gap-1"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  Click to Download PDF
+                </a>
+              </div>
             </div>
           </div>
         </div>
