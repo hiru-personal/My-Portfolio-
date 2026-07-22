@@ -58,23 +58,35 @@ function Footer() {
             ))}
           </div>
 
-          {/* Right Side: Copyright details */}
-          <p className="font-inter text-xs text-white/40 text-center md:text-right">
-            © {new Date().getFullYear()} Hiruni Dissanayake.
-            <br />
-            <span className="text-[10px] text-white/20 uppercase tracking-widest font-semibold mt-1 inline-block">
-              All rights reserved.
-            </span>
-          </p>
+          {/* Right Side: Live URL & Copyright details */}
+          <div className="text-center md:text-right space-y-1.5">
+            <a
+              href="https://hiruni-dissanayake-portfolio.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-poppins text-xs font-semibold text-brand-purple hover:text-brand-purple-secondary transition-colors inline-flex items-center gap-1.5"
+            >
+              <span>hiruni-dissanayake-portfolio.netlify.app</span>
+              <svg className="w-3 h-3 text-brand-purple" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+            <p className="font-inter text-xs text-white/40">
+              © {new Date().getFullYear()} Hiruni Dissanayake. All rights reserved.
+            </p>
+          </div>
         </div>
 
-        {/* Bottom micro-credits */}
-        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-white/20 tracking-wider font-semibold uppercase">
+        {/* Bottom micro-credits with Last Modified tag */}
+        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-white/40 tracking-wider font-semibold uppercase">
           <span className="flex items-center gap-1.5">
-            Framework: <span className="text-brand-purple-secondary">React + Vite</span>
+            Framework: <span className="text-brand-purple-secondary font-bold">React + Vite</span>
           </span>
-          <span className="hidden sm:inline text-white/5">•</span>
-          <span>ATS-Friendly Structure</span>
+          <span className="hidden sm:inline text-white/10">•</span>
+          <span className="flex items-center gap-1.5 text-emerald-400/90 font-mono text-[11px] normal-case">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            Last Modified: July 22, 2026
+          </span>
         </div>
       </div>
     </footer>
