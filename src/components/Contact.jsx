@@ -17,39 +17,42 @@ function Contact() {
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
-
     const payload = {
-      access_key: accessKey,
       name: formData.name,
       email: formData.email,
       message: formData.message,
-      subject: "New Portfolio Inquiry from " + formData.name,
-      from_name: formData.name,
+      _subject: `New Portfolio Inquiry from ${formData.name}`,
+      _replyto: formData.email,
+      _captcha: "false"
     };
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // 1. Submit via FormSubmit AJAX directly to recipient email
+      const response = await fetch("https://formsubmit.co/ajax/hirunidissanayake116@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json"
+          "Accept": "application/json"
         },
         body: JSON.stringify(payload)
       });
 
       const result = await response.json();
-      if (result.success) {
+      if (response.ok || result.success === "true" || result.success === true) {
         setSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => {
           setSubmitted(false);
-        }, 5000);
+        }, 6000);
       } else {
-        setSubmitError(result.message || "Failed to send. Please check your credentials or try again.");
+        // Direct email fallback if API responds with non-ok
+        window.location.href = `mailto:hirunidissanayake116@gmail.com?subject=${encodeURIComponent("Portfolio Inquiry from " + formData.name)}&body=${encodeURIComponent("Name: " + formData.name + "\nEmail: " + formData.email + "\n\nMessage:\n" + formData.message)}`;
+        setSubmitted(true);
       }
     } catch (err) {
-      setSubmitError("Failed to send message. Please check your internet connection.");
+      // Fallback mailto launch if network is blocked
+      window.location.href = `mailto:hirunidissanayake116@gmail.com?subject=${encodeURIComponent("Portfolio Inquiry from " + formData.name)}&body=${encodeURIComponent("Name: " + formData.name + "\nEmail: " + formData.email + "\n\nMessage:\n" + formData.message)}`;
+      setSubmitted(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -148,9 +151,13 @@ function Contact() {
 
           {/* Right: Contact Form */}
           <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
             onSubmit={handleSubmit}
             className="reveal space-y-4 text-left"
           >
+            <input type="hidden" name="form-name" value="contact" />
             <div className="glass-panel rounded-[18px] p-8 space-y-5 border border-white/5 bg-brand-dark-card/45">
               <div>
                 <label htmlFor="name" className="block font-poppins text-[10px] font-bold text-white/50 uppercase tracking-[0.15em] mb-2">
@@ -207,7 +214,7 @@ function Contact() {
               </div>
 
               {submitError && (
-                <div className="text-red-500 text-xs font-semibold text-center pb-2 animate-pulse">
+                <div className="text-red-400 text-xs font-semibold text-center pb-2 animate-pulse">
                   {submitError}
                 </div>
               )}
@@ -217,7 +224,7 @@ function Contact() {
                 type="submit"
                 disabled={isSubmitting}
                 className={`group relative w-full font-poppins font-bold text-xs uppercase tracking-wider py-4 rounded-[18px] overflow-hidden transition-all duration-500 ${submitted
-                    ? 'bg-brand-orange text-white shadow-lg shadow-brand-orange/20' /* Orange highlight on success */
+                    ? 'bg-brand-orange text-white shadow-lg shadow-brand-orange/20'
                     : isSubmitting
                       ? 'bg-gradient-to-r from-brand-purple/70 to-brand-purple-secondary/70 text-white shadow-md cursor-not-allowed'
                       : 'bg-gradient-to-r from-brand-purple to-brand-purple-secondary text-white shadow-md hover:opacity-90 hover:-translate-y-0.5 shadow-brand-purple/10'
