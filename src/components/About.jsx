@@ -11,9 +11,8 @@ const milestones = [
   {
     year: '2026',
     title: 'Business Analyst, Project Management, QA Intern',
-    institution: 'Road Development Authority (RDA)',
-    description: 'Joined the RDA digital transformation division. Actively gather requirements, conduct stakeholder workshops, QA testing, wireframe user interfaces, and author system specifications (SRS).',
-    active: true,
+    institution: 'Road Development Authority (RDA) • Completed',
+    description: 'Completed internship at the RDA digital transformation division. Gathered requirements, conducted stakeholder workshops, executed QA testing, wireframed user interfaces, and authored system specifications (SRS).',
   },
   {
     year: '2028',

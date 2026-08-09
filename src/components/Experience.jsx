@@ -142,8 +142,8 @@ function Experience() {
 
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
             <div>
-              <span className="inline-block text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-brand-purple/15 text-brand-purple px-3 py-1.5 rounded-full mb-3 border border-brand-purple/20">
-                Current Role
+              <span className="inline-block text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-emerald-500/15 text-emerald-400 px-3 py-1.5 rounded-full mb-3 border border-emerald-500/20">
+                Completed Internship
               </span>
               <h3 className="font-poppins text-2xl md:text-3xl font-extrabold text-white leading-tight">
                 Business Analysis Intern
@@ -155,7 +155,7 @@ function Experience() {
 
             <div className="text-left md:text-right font-poppins text-xs font-semibold">
               <p className="text-brand-purple uppercase tracking-wider font-bold">
-                2026 - Present
+                2026 (Completed)
               </p>
               <p className="text-brand-dark-textMuted mt-1">
                 Colombo, Sri Lanka
@@ -164,7 +164,7 @@ function Experience() {
           </div>
 
           <p className="font-inter text-sm md:text-base text-brand-dark-textMuted leading-relaxed max-w-4xl">
-            Contributing to the RDA's digital transformation initiatives through Business Analysis, Quality Assurance, Project Coordination, and Software Development activities. Collaborating with stakeholders and technical teams to gather and analyze requirements, document business processes, conduct frontend, backend, and API testing, and support the development and delivery of digital solutions that enhance operational efficiency and streamline organizational workflows.
+            Contributed to the RDA's digital transformation initiatives through Business Analysis, Quality Assurance, Project Coordination, and Software Development activities. Collaborated with stakeholders and technical teams to gather and analyze requirements, document business processes, conduct frontend, backend, and API testing, and support the development and delivery of digital solutions that enhance operational efficiency and streamline organizational workflows.
           </p>
         </div>
 
