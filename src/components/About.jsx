@@ -15,6 +15,12 @@ const milestones = [
     description: 'Completed internship at the RDA digital transformation division. Gathered requirements, conducted stakeholder workshops, executed QA testing, wireframed user interfaces, and authored system specifications (SRS).',
   },
   {
+    year: '2026 - Present',
+    title: 'Business Analysis Intern',
+    institution: 'Ministry of Transport, Highways and Urban Development • Active',
+    description: 'Currently contributing to ministerial digital transformation, business process optimization, requirements engineering, and workflow automation across transport and urban development divisions.',
+  },
+  {
     year: '2028',
     title: 'Expected Graduation',
     institution: 'SLIIT Degree Completion',

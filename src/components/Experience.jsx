@@ -36,7 +36,7 @@ const projects = [
     activities: ['Contributed to requirement engineering, prototype design, and system documentation to support the development of an efficient correspondence management solution with improved visibility, accountability, and workflow control.'],
     impact: 'Replaced Manual Excel-Based Tracking with a Centralized Digital Workflow',
     tags: ['Business Analysis', 'Requirements Engineering', 'SRS', 'UML', 'Prototype Design', 'Workflow Automation', 'Document Management'],
-    highlight: false
+    highlight: true // Orange highlight
   },
   {
     title: 'Transport Data Collection Platform',
@@ -112,6 +112,42 @@ const projects = [
   },
 ];
 
+const internships = [
+  {
+    role: 'Business Analysis Intern',
+    organization: 'Ministry of Transport, Highways and Urban Development',
+    status: 'Active Internship',
+    isActive: true,
+    period: 'Started 1 Month Ago • Present',
+    year: '2026 – Present',
+    location: 'Battaramulla / Colombo, Sri Lanka',
+    description: 'Involved in GovTech-related government digitalization programs, contributing to Business Analysis (BA) activities across various ministerial divisions. Spearheading requirement elicitation and digital process re-engineering for key ministerial digitalization initiatives across transport, highways, and urban development divisions. Collaborating closely with ministerial executives, administrative directors, and technical teams to gather functional specifications, draft Software Requirements Specifications (SRS), and streamline government correspondence and project approval pipelines.',
+    contributions: [
+      'Business Process Re-engineering (BPR)',
+      'Requirements Elicitation & SRS Documentation',
+      'Digital Correspondence & Workflow Automation',
+      'Stakeholder Alignment Across Ministerial Divisions',
+      'User Acceptance Testing (UAT) & QA Validation'
+    ]
+  },
+  {
+    role: 'Business Analysis Intern',
+    organization: 'Road Development Authority (RDA)',
+    status: 'Completed Internship',
+    isActive: false,
+    period: '2026 (Completed)',
+    year: '2026',
+    location: 'Colombo, Sri Lanka',
+    description: "Contributed to the RDA's digital transformation initiatives through Business Analysis, Quality Assurance, Project Coordination, and Software Development activities. Collaborated with stakeholders and technical teams to gather and analyze requirements, document business processes, conduct frontend, backend, and API testing, and support the development and delivery of digital solutions that enhance operational efficiency and streamline organizational workflows.",
+    contributions: [
+      'Requirements Analysis & System Modeling (UML)',
+      'Frontend, Backend & API Testing Execution',
+      'Stakeholder Alignment & Cadre Audit Workshops',
+      'Software Requirements Specification (SRS) Authoring'
+    ]
+  }
+];
+
 function Experience() {
   const sectionRef = useScrollReveal();
 
@@ -135,43 +171,92 @@ function Experience() {
           </h2>
         </div>
 
-        {/* ─── Internship Header Banner with 18px rounded corners ─── */}
-        <div className="glass-panel p-8 md:p-10 rounded-[18px] mb-16 reveal relative overflow-hidden bg-brand-dark-card/45 border border-white/5 shadow-xl">
-          {/* Subtle decoration background */}
-          <div className="absolute right-0 top-0 w-64 h-64 bg-gradient-to-bl from-brand-purple/5 to-transparent blur-3xl pointer-events-none" />
+        {/* ─── Internships Section ─── */}
+        <div className="space-y-8 mb-16">
+          {internships.map((internship) => {
+            return (
+              <div
+                key={internship.organization}
+                className={`glass-panel p-8 md:p-10 rounded-[18px] reveal relative overflow-hidden bg-brand-dark-card/45 border shadow-xl transition-all duration-300 ${
+                  internship.isActive
+                    ? 'border-emerald-500/25 hover:border-emerald-500/40 shadow-emerald-500/5'
+                    : 'border-white/5 hover:border-brand-purple/20'
+                }`}
+              >
+                {/* Subtle decoration background */}
+                <div className={`absolute right-0 top-0 w-64 h-64 bg-gradient-to-bl pointer-events-none blur-3xl ${
+                  internship.isActive ? 'from-emerald-500/10 to-transparent' : 'from-brand-purple/5 to-transparent'
+                }`} />
 
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
-            <div>
-              <span className="inline-block text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-emerald-500/15 text-emerald-400 px-3 py-1.5 rounded-full mb-3 border border-emerald-500/20">
-                Completed Internship
-              </span>
-              <h3 className="font-poppins text-2xl md:text-3xl font-extrabold text-white leading-tight">
-                Business Analysis Intern
-              </h3>
-              <p className="font-poppins text-base font-bold text-white/70 mt-1">
-                Road Development Authority (RDA)
-              </p>
-            </div>
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
+                  <div>
+                    {internship.isActive ? (
+                      <span className="inline-flex items-center gap-2 text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-emerald-500/15 text-emerald-400 px-3 py-1.5 rounded-full mb-3 border border-emerald-500/20">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        Active Internship • 1 Month
+                      </span>
+                    ) : (
+                      <span className="inline-block text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-brand-purple/15 text-brand-purple px-3 py-1.5 rounded-full mb-3 border border-brand-purple/20">
+                        Completed Internship
+                      </span>
+                    )}
+                    <h3 className="font-poppins text-2xl md:text-3xl font-extrabold text-white leading-tight">
+                      {internship.role}
+                    </h3>
+                    <p className={`font-poppins text-base font-bold mt-1 ${internship.isActive ? 'text-emerald-400/90' : 'text-white/70'}`}>
+                      {internship.organization}
+                    </p>
+                  </div>
 
-            <div className="text-left md:text-right font-poppins text-xs font-semibold">
-              <p className="text-brand-purple uppercase tracking-wider font-bold">
-                2026 (Completed)
-              </p>
-              <p className="text-brand-dark-textMuted mt-1">
-                Colombo, Sri Lanka
-              </p>
-            </div>
-          </div>
+                  <div className="text-left md:text-right font-poppins text-xs font-semibold">
+                    <p className={`uppercase tracking-wider font-bold ${internship.isActive ? 'text-emerald-400' : 'text-brand-purple'}`}>
+                      {internship.period}
+                    </p>
+                    <p className="text-brand-dark-textMuted mt-1">
+                      {internship.location}
+                    </p>
+                  </div>
+                </div>
 
-          <p className="font-inter text-sm md:text-base text-brand-dark-textMuted leading-relaxed max-w-4xl">
-            Contributed to the RDA's digital transformation initiatives through Business Analysis, Quality Assurance, Project Coordination, and Software Development activities. Collaborated with stakeholders and technical teams to gather and analyze requirements, document business processes, conduct frontend, backend, and API testing, and support the development and delivery of digital solutions that enhance operational efficiency and streamline organizational workflows.
-          </p>
+                <p className="font-inter text-sm md:text-base text-brand-dark-textMuted leading-relaxed max-w-4xl mb-6">
+                  {internship.description}
+                </p>
+
+                {/* Key Contributions */}
+                <div className="pt-4 border-t border-white/5">
+                  <p className={`font-poppins font-bold uppercase tracking-wider text-[10px] mb-2.5 ${
+                    internship.isActive ? 'text-emerald-400' : 'text-brand-purple'
+                  }`}>
+                    Key Focus Areas & BA Contributions
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {internship.contributions.map((item) => (
+                      <span
+                        key={item}
+                        className="font-inter text-xs font-semibold text-white/85 bg-white/5 border border-white/5 px-3 py-1 rounded-lg"
+                      >
+                        ✓ {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* ─── Projects Vertical Timeline ─── */}
-        <h3 className="font-poppins text-xl font-bold text-white mb-10 text-left">
-          Key Projects & Case Studies at RDA
-        </h3>
+        <div className="reveal mb-10 text-left">
+          <h3 className="font-poppins text-2xl font-bold text-white mb-2">
+            Key Ministerial & Public Sector Case Studies
+          </h3>
+          <p className="font-inter text-sm text-brand-dark-textMuted">
+            Comprehensive system architectures, business analysis, and digital transformation initiatives conducted across the Ministry, RDA, and Sri Lanka Railways.
+          </p>
+        </div>
 
         <div className="relative pl-6 border-l border-white/10 space-y-12 text-left">
           {projects.map((project, i) => {

@@ -249,7 +249,7 @@ function Hero() {
               </p>
               <div className="flex flex-col items-start mt-1">
                 <span className="font-poppins text-3xl font-extrabold text-white leading-none">
-                  <AnimatedCounter end={5} suffix="+" />
+                  <AnimatedCounter end={6} suffix="+" />
                 </span>
                 <div className="w-10 h-1 bg-brand-purple rounded-full mt-2" />
               </div>
@@ -289,7 +289,7 @@ function Hero() {
               </p>
               <div className="flex flex-col items-start mt-1">
                 <span className="font-poppins text-3xl font-extrabold text-white leading-none">
-                  5+    Projects Experience
+                  6+ Projects Experience
                 </span>
                 <div className="w-10 h-1 bg-brand-purple rounded-full mt-2" />
               </div>
