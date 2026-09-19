@@ -63,7 +63,7 @@ function Contact() {
       label: 'Email',
       value: 'hirunidissanayake116@gmail.com',
       href: 'mailto:hirunidissanayake116@gmail.com',
-      gradient: 'from-brand-purple to-brand-purple-secondary',
+      gradient: 'from-brand-royal via-brand-violet to-brand-cyan',
       icon: (
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -74,7 +74,7 @@ function Contact() {
       label: 'LinkedIn',
       value: 'linkedin.com/in/hiruni-dissanayake',
       href: 'https://www.linkedin.com/in/hiruni-dissanayake-2a7a65396?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
-      gradient: 'from-brand-purple-secondary to-brand-purple',
+      gradient: 'from-brand-violet to-brand-sky',
       icon: (
         <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -84,9 +84,9 @@ function Contact() {
   ];
 
   const inputClasses = (field) =>
-    `w-full px-5 py-4 rounded-[18px] border bg-brand-dark-card/40 font-inter text-sm text-white placeholder:text-white/30 transition-all duration-500 outline-none ${focused === field
-      ? 'border-brand-purple bg-brand-dark-card shadow-lg shadow-brand-purple/10'
-      : 'border-white/10 hover:border-brand-purple/45'
+    `w-full px-5 py-4 rounded-[18px] border font-inter text-sm transition-all duration-300 outline-none ${focused === field
+      ? 'border-brand-royal bg-white dark:bg-brand-dark-card shadow-lg shadow-brand-royal/10 text-slate-900 dark:text-white'
+      : 'border-slate-200 dark:border-white/10 bg-slate-50/80 dark:bg-brand-dark-card/40 text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/30 hover:border-brand-royal/45'
     }`;
 
   return (
@@ -99,12 +99,12 @@ function Contact() {
         {/* Section header */}
         <div className="reveal mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-[2px] bg-gradient-to-r from-brand-purple to-brand-purple-secondary rounded-full" />
-            <p className="font-poppins text-sm font-semibold text-brand-purple uppercase tracking-[0.2em]">
+            <div className="w-12 h-[2px] bg-gradient-to-r from-brand-royal via-brand-violet to-brand-cyan rounded-full" />
+            <p className="font-poppins text-sm font-semibold text-brand-royal dark:text-brand-violet uppercase tracking-[0.2em]">
               Get In Touch
             </p>
           </div>
-          <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-white">
+          <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">
             Connect With Me
           </h2>
         </div>
@@ -112,7 +112,7 @@ function Contact() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left: Contact Info */}
           <div className="space-y-6 text-left">
-            <p className="reveal font-inter text-brand-dark-textMuted text-base leading-relaxed">
+            <p className="reveal font-inter text-slate-600 dark:text-brand-dark-textMuted text-base leading-relaxed">
               If you are a recruiter looking for an analytical mind to drive enterprise projects, or a leader seeking to optimize business workflows, let's establish contact.
             </p>
 
@@ -123,21 +123,21 @@ function Contact() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="reveal group flex items-center gap-5 p-5 rounded-[18px] glass-panel border border-white/5 bg-brand-dark-card/45 glass-card-hover"
+                  className="reveal group flex items-center gap-5 p-5 rounded-[18px] glass-panel border border-slate-200/80 dark:border-white/5 glass-card-hover shadow-sm"
                 >
                   <div className={`w-12 h-12 rounded-[18px] bg-gradient-to-br ${link.gradient} flex items-center justify-center shadow-md transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3`}>
                     {link.icon}
                   </div>
                   <div>
-                    <p className="font-poppins text-[10px] font-bold text-white/40 uppercase tracking-[0.15em] mb-0.5">
+                    <p className="font-poppins text-[10px] font-bold text-slate-400 dark:text-white/40 uppercase tracking-[0.15em] mb-0.5">
                       {link.label}
                     </p>
-                    <p className="font-inter text-sm font-semibold text-white group-hover:text-brand-purple transition-colors duration-300">
+                    <p className="font-inter text-sm font-semibold text-slate-900 dark:text-white group-hover:text-brand-royal transition-colors duration-300">
                       {link.value}
                     </p>
                   </div>
                   <svg
-                    className="w-4 h-4 ml-auto text-white/20 group-hover:text-brand-purple transition-all duration-500 group-hover:translate-x-1"
+                    className="w-4 h-4 ml-auto text-slate-400 dark:text-white/20 group-hover:text-brand-royal transition-all duration-500 group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -158,9 +158,9 @@ function Contact() {
             className="reveal space-y-4 text-left"
           >
             <input type="hidden" name="form-name" value="contact" />
-            <div className="glass-panel rounded-[18px] p-8 space-y-5 border border-white/5 bg-brand-dark-card/45">
+            <div className="glass-panel rounded-[18px] p-8 space-y-5 border border-slate-200/80 dark:border-white/5 shadow-sm">
               <div>
-                <label htmlFor="name" className="block font-poppins text-[10px] font-bold text-white/50 uppercase tracking-[0.15em] mb-2">
+                <label htmlFor="name" className="block font-poppins text-[10px] font-bold text-slate-600 dark:text-white/50 uppercase tracking-[0.15em] mb-2">
                   Full Name
                 </label>
                 <input
@@ -178,7 +178,7 @@ function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block font-poppins text-[10px] font-bold text-white/50 uppercase tracking-[0.15em] mb-2">
+                <label htmlFor="email" className="block font-poppins text-[10px] font-bold text-slate-600 dark:text-white/50 uppercase tracking-[0.15em] mb-2">
                   Email Address
                 </label>
                 <input
@@ -196,7 +196,7 @@ function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block font-poppins text-[10px] font-bold text-white/50 uppercase tracking-[0.15em] mb-2">
+                <label htmlFor="message" className="block font-poppins text-[10px] font-bold text-slate-600 dark:text-white/50 uppercase tracking-[0.15em] mb-2">
                   Message Details
                 </label>
                 <textarea
@@ -219,15 +219,15 @@ function Contact() {
                 </div>
               )}
 
-              {/* Submit button in Purple Gradient with Orange subtle checkmark on success */}
+              {/* Submit button in Royal/Violet/Cyan Gradient with Cyan checkmark on success */}
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className={`group relative w-full font-poppins font-bold text-xs uppercase tracking-wider py-4 rounded-[18px] overflow-hidden transition-all duration-500 ${submitted
-                    ? 'bg-brand-orange text-white shadow-lg shadow-brand-orange/20'
+                    ? 'bg-brand-cyan text-white shadow-lg shadow-brand-cyan/20'
                     : isSubmitting
-                      ? 'bg-gradient-to-r from-brand-purple/70 to-brand-purple-secondary/70 text-white shadow-md cursor-not-allowed'
-                      : 'bg-gradient-to-r from-brand-purple to-brand-purple-secondary text-white shadow-md hover:opacity-90 hover:-translate-y-0.5 shadow-brand-purple/10'
+                      ? 'bg-gradient-to-r from-brand-royal/70 to-brand-violet/70 text-white shadow-md cursor-not-allowed'
+                      : 'bg-gradient-to-r from-brand-royal via-brand-violet to-brand-cyan text-white shadow-md hover:opacity-90 hover:-translate-y-0.5 shadow-brand-royal/20'
                   }`}
               >
                 {!submitted && !isSubmitting && (

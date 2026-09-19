@@ -161,12 +161,12 @@ function Experience() {
         {/* Section header */}
         <div className="reveal mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-[2px] bg-gradient-to-r from-brand-purple to-brand-purple-secondary rounded-full" />
-            <p className="font-poppins text-sm font-semibold text-brand-purple uppercase tracking-[0.2em]">
+            <div className="w-12 h-[2px] bg-gradient-to-r from-brand-royal via-brand-violet to-brand-cyan rounded-full" />
+            <p className="font-poppins text-sm font-semibold text-brand-royal dark:text-brand-violet uppercase tracking-[0.2em]">
               Timeline & Work
             </p>
           </div>
-          <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-white">
+          <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">
             Professional Experience
           </h2>
         </div>
@@ -177,21 +177,21 @@ function Experience() {
             return (
               <div
                 key={internship.organization}
-                className={`glass-panel p-8 md:p-10 rounded-[18px] reveal relative overflow-hidden bg-brand-dark-card/45 border shadow-xl transition-all duration-300 ${
+                className={`glass-panel p-8 md:p-10 rounded-[18px] reveal relative overflow-hidden shadow-xl transition-all duration-300 ${
                   internship.isActive
-                    ? 'border-emerald-500/25 hover:border-emerald-500/40 shadow-emerald-500/5'
-                    : 'border-white/5 hover:border-brand-purple/20'
+                    ? 'border-emerald-500/35 dark:border-emerald-500/25 hover:border-emerald-500/50 shadow-emerald-500/5'
+                    : 'border-slate-200/80 dark:border-white/5 hover:border-brand-royal/30'
                 }`}
               >
                 {/* Subtle decoration background */}
                 <div className={`absolute right-0 top-0 w-64 h-64 bg-gradient-to-bl pointer-events-none blur-3xl ${
-                  internship.isActive ? 'from-emerald-500/10 to-transparent' : 'from-brand-purple/5 to-transparent'
+                  internship.isActive ? 'from-emerald-500/10 to-transparent' : 'from-brand-royal/10 to-transparent'
                 }`} />
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
                   <div>
                     {internship.isActive ? (
-                      <span className="inline-flex items-center gap-2 text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-emerald-500/15 text-emerald-400 px-3 py-1.5 rounded-full mb-3 border border-emerald-500/20">
+                      <span className="inline-flex items-center gap-2 text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-3 py-1.5 rounded-full mb-3 border border-emerald-500/25">
                         <span className="relative flex h-2 w-2">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -199,36 +199,36 @@ function Experience() {
                         Active Internship • 1 Month
                       </span>
                     ) : (
-                      <span className="inline-block text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-brand-purple/15 text-brand-purple px-3 py-1.5 rounded-full mb-3 border border-brand-purple/20">
+                      <span className="inline-block text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-brand-purple/10 text-brand-purple px-3 py-1.5 rounded-full mb-3 border border-brand-purple/20">
                         Completed Internship
                       </span>
                     )}
-                    <h3 className="font-poppins text-2xl md:text-3xl font-extrabold text-white leading-tight">
+                    <h3 className="font-poppins text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">
                       {internship.role}
                     </h3>
-                    <p className={`font-poppins text-base font-bold mt-1 ${internship.isActive ? 'text-emerald-400/90' : 'text-white/70'}`}>
+                    <p className={`font-poppins text-base font-bold mt-1 ${internship.isActive ? 'text-emerald-600 dark:text-emerald-400/90' : 'text-slate-600 dark:text-white/70'}`}>
                       {internship.organization}
                     </p>
                   </div>
 
                   <div className="text-left md:text-right font-poppins text-xs font-semibold">
-                    <p className={`uppercase tracking-wider font-bold ${internship.isActive ? 'text-emerald-400' : 'text-brand-purple'}`}>
+                    <p className={`uppercase tracking-wider font-bold ${internship.isActive ? 'text-emerald-600 dark:text-emerald-400' : 'text-brand-purple'}`}>
                       {internship.period}
                     </p>
-                    <p className="text-brand-dark-textMuted mt-1">
+                    <p className="text-slate-500 dark:text-brand-dark-textMuted mt-1">
                       {internship.location}
                     </p>
                   </div>
                 </div>
 
-                <p className="font-inter text-sm md:text-base text-brand-dark-textMuted leading-relaxed max-w-4xl mb-6">
+                <p className="font-inter text-sm md:text-base text-slate-600 dark:text-brand-dark-textMuted leading-relaxed max-w-4xl mb-6">
                   {internship.description}
                 </p>
 
                 {/* Key Contributions */}
-                <div className="pt-4 border-t border-white/5">
+                <div className="pt-4 border-t border-slate-200/80 dark:border-white/5">
                   <p className={`font-poppins font-bold uppercase tracking-wider text-[10px] mb-2.5 ${
-                    internship.isActive ? 'text-emerald-400' : 'text-brand-purple'
+                    internship.isActive ? 'text-emerald-600 dark:text-emerald-400' : 'text-brand-purple'
                   }`}>
                     Key Focus Areas & BA Contributions
                   </p>
@@ -236,7 +236,7 @@ function Experience() {
                     {internship.contributions.map((item) => (
                       <span
                         key={item}
-                        className="font-inter text-xs font-semibold text-white/85 bg-white/5 border border-white/5 px-3 py-1 rounded-lg"
+                        className="font-inter text-xs font-semibold text-slate-700 dark:text-white/85 bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/5 px-3 py-1 rounded-lg"
                       >
                         ✓ {item}
                       </span>
@@ -250,57 +250,57 @@ function Experience() {
 
         {/* ─── Projects Vertical Timeline ─── */}
         <div className="reveal mb-10 text-left">
-          <h3 className="font-poppins text-2xl font-bold text-white mb-2">
+          <h3 className="font-poppins text-2xl font-bold text-slate-900 dark:text-white mb-2">
             Key Ministerial & Public Sector Case Studies
           </h3>
-          <p className="font-inter text-sm text-brand-dark-textMuted">
+          <p className="font-inter text-sm text-slate-600 dark:text-brand-dark-textMuted">
             Comprehensive system architectures, business analysis, and digital transformation initiatives conducted across the Ministry, RDA, and Sri Lanka Railways.
           </p>
         </div>
 
-        <div className="relative pl-6 border-l border-white/10 space-y-12 text-left">
+        <div className="relative pl-6 border-l border-slate-200 dark:border-white/10 space-y-12 text-left">
           {projects.map((project, i) => {
             const isHighlight = project.highlight;
             return (
               <div key={project.title} className="relative reveal">
-                {/* Timeline Bullet (Purple with Orange Highlights) */}
-                <div className={`absolute -left-[31px] top-2 w-4 h-4 rounded-full border-2 bg-brand-dark-bg flex items-center justify-center shadow-md ${
-                  isHighlight ? 'border-brand-orange shadow-brand-orange/15' : 'border-brand-purple shadow-brand-purple/15'
+                {/* Timeline Bullet */}
+                <div className={`absolute -left-[31px] top-2 w-4 h-4 rounded-full border-2 bg-white dark:bg-brand-dark-bg flex items-center justify-center shadow-sm ${
+                  isHighlight ? 'border-brand-cyan shadow-brand-cyan/20' : 'border-brand-royal shadow-brand-royal/20'
                 }`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${isHighlight ? 'bg-brand-orange' : 'bg-brand-purple'}`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${isHighlight ? 'bg-brand-cyan' : 'bg-brand-royal'}`} />
                 </div>
 
-                {/* Project Card (18px rounded) */}
-                <div className={`glass-panel p-6 md:p-8 rounded-[18px] glass-card-hover border border-white/5 bg-brand-dark-card/45 shadow-lg ${
-                  isHighlight ? 'hover:border-brand-orange/20' : 'hover:border-brand-purple/20'
+                {/* Project Card */}
+                <div className={`glass-panel p-6 md:p-8 rounded-[18px] glass-card-hover border border-slate-200/80 dark:border-white/5 shadow-sm ${
+                  isHighlight ? 'hover:border-brand-cyan/30' : 'hover:border-brand-royal/30'
                 }`}>
                   <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                     <div className="flex items-center gap-3">
                       <div>
-                        <h4 className="font-poppins text-lg md:text-xl font-bold text-white">
+                        <h4 className="font-poppins text-lg md:text-xl font-bold text-slate-900 dark:text-white">
                           {project.title}
                         </h4>
-                        <p className="font-inter text-xs text-brand-dark-textMuted font-medium mt-0.5">
+                        <p className="font-inter text-xs text-slate-500 dark:text-brand-dark-textMuted font-medium mt-0.5">
                           {project.subtitle}
                         </p>
                       </div>
                     </div>
 
                     {/* Impact KPI Tag */}
-                    <span className="font-poppins text-[10px] font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full">
+                    <span className="font-poppins text-[10px] font-extrabold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full">
                       Impact: {project.impact}
                     </span>
                   </div>
 
-                  <p className="font-inter text-xs sm:text-sm text-brand-dark-textMuted leading-relaxed mb-6">
+                  <p className="font-inter text-xs sm:text-sm text-slate-600 dark:text-brand-dark-textMuted leading-relaxed mb-6">
                     {project.description}
                   </p>
 
                   {/* Grid detailing Actions vs Tools */}
-                  <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-white/5 text-xs">
+                  <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-slate-200/80 dark:border-white/5 text-xs">
                     <div>
                       <p className={`font-poppins font-bold uppercase tracking-wider text-[10px] mb-2 ${
-                        isHighlight ? 'text-brand-orange' : 'text-brand-purple'
+                        isHighlight ? 'text-brand-cyan' : 'text-brand-royal'
                       }`}>
                         Core BA Contributions
                       </p>
@@ -308,7 +308,7 @@ function Experience() {
                         {project.activities.map((act) => (
                           <span
                             key={act}
-                            className="font-inter text-[11px] font-semibold text-white/80 bg-white/5 border border-white/5 px-2.5 py-1 rounded-lg"
+                            className="font-inter text-[11px] font-semibold text-slate-700 dark:text-white/80 bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/5 px-2.5 py-1 rounded-lg"
                           >
                             ✓ {act}
                           </span>
@@ -317,7 +317,7 @@ function Experience() {
                     </div>
 
                     <div>
-                      <p className="font-poppins font-bold uppercase tracking-wider text-[10px] text-white/50 mb-2">
+                      <p className="font-poppins font-bold uppercase tracking-wider text-[10px] text-slate-500 dark:text-white/50 mb-2">
                         Tools & Methodologies
                       </p>
                       <div className="flex flex-wrap gap-1.5">
@@ -326,8 +326,8 @@ function Experience() {
                             key={tag}
                             className={`font-inter text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-lg border ${
                               isHighlight 
-                                ? 'text-brand-orange bg-brand-orange/5 border-brand-orange/15' 
-                                : 'text-brand-purple bg-brand-purple/5 border-brand-purple/15'
+                                ? 'text-brand-cyan bg-brand-cyan/5 border-brand-cyan/20' 
+                                : 'text-brand-royal bg-brand-royal/5 border-brand-royal/20'
                             }`}
                           >
                             {tag}

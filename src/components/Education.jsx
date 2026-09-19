@@ -22,69 +22,69 @@ function Education() {
         {/* Section header */}
         <div className="reveal mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-[2px] bg-gradient-to-r from-brand-purple to-brand-purple-secondary rounded-full" />
-            <p className="font-poppins text-sm font-semibold text-brand-purple uppercase tracking-[0.2em]">
+            <div className="w-12 h-[2px] bg-gradient-to-r from-brand-royal via-brand-violet to-brand-cyan rounded-full" />
+            <p className="font-poppins text-sm font-semibold text-brand-royal dark:text-brand-violet uppercase tracking-[0.2em]">
               Academic Path
             </p>
           </div>
-          <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-white">
+          <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">
             Education
           </h2>
         </div>
 
-        {/* ─── SLIIT Primary Card with 18px rounded corners ─── */}
-        <div className="glass-panel p-8 md:p-10 rounded-[18px] mb-12 reveal text-left relative overflow-hidden border border-white/5 bg-brand-dark-card/45 shadow-xl">
+        {/* ─── SLIIT Primary Card ─── */}
+        <div className="glass-panel p-8 md:p-10 rounded-[18px] mb-12 reveal text-left relative overflow-hidden border border-slate-200/80 dark:border-white/5 shadow-xl">
           {/* Subtle background decoration */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-brand-purple/5 to-transparent blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-brand-royal/10 to-transparent blur-3xl pointer-events-none" />
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
             <div>
-              <span className="inline-block text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-brand-purple/15 text-brand-purple px-3 py-1.5 rounded-full mb-3 border border-brand-purple/20">
+              <span className="inline-block text-[10px] font-poppins font-extrabold uppercase tracking-widest bg-brand-royal/10 text-brand-royal px-3 py-1.5 rounded-full mb-3 border border-brand-royal/20">
                 Active Undergraduate
               </span>
-              <h3 className="font-poppins text-2xl md:text-3xl font-extrabold text-white leading-tight">
+              <h3 className="font-poppins text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">
                 BSc (Hons) in Information Technology
               </h3>
-              <p className="font-poppins text-base font-bold text-brand-purple mt-1">
+              <p className="font-poppins text-base font-bold text-brand-royal dark:text-brand-violet mt-1">
                 Specializing in Information Systems Engineering
               </p>
             </div>
             
             <div className="text-left md:text-right font-poppins text-xs font-semibold">
-              <p className="text-white uppercase tracking-wider font-bold">
+              <p className="text-slate-900 dark:text-white uppercase tracking-wider font-bold">
                 2024 - 2028 (Expected)
               </p>
-              <p className="text-brand-dark-textMuted mt-1">
-                Sri Lanka Institute of Information Technology (SLIIT)
+              <p className="text-slate-500 dark:text-brand-dark-textMuted mt-0.5">
+                SLIIT Malabe Campus
               </p>
             </div>
           </div>
           
-          <p className="font-inter text-sm md:text-base text-brand-dark-textMuted leading-relaxed max-w-4xl">
+          <p className="font-inter text-sm md:text-base text-slate-600 dark:text-brand-dark-textMuted leading-relaxed max-w-4xl">
             Pursuing a rigorous Systems Engineering curriculum designed to align core computer science foundations with business architectures. Academically trained to model operational logic, manage relational database designs, structure UML workflows, and deploy enterprise agile solutions.
           </p>
         </div>
 
-        {/* ─── Coursework Grid (Alternating Hover Borders) ─── */}
-        <h3 className="font-poppins text-lg font-bold text-white mb-8 text-left">
+        {/* ─── Coursework Grid ─── */}
+        <h3 className="font-poppins text-lg font-bold text-slate-900 dark:text-white mb-8 text-left">
           Core Relevant Coursework
         </h3>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course, i) => {
-            const isOrangeHighlight = i === 1 || i === 3;
+            const isCyanHighlight = i === 1 || i === 3;
             return (
               <div
                 key={course.name}
-                className={`glass-panel p-6 rounded-[18px] text-left reveal glass-card-hover border border-white/5 bg-brand-dark-card/45 flex flex-col justify-between ${
-                  isOrangeHighlight ? 'hover:border-brand-orange/20 hover:shadow-brand-orange/5' : 'hover:border-brand-purple/20 hover:shadow-brand-purple/5'
+                className={`glass-panel p-6 rounded-[18px] text-left reveal glass-card-hover border border-slate-200/80 dark:border-white/5 flex flex-col justify-between shadow-sm ${
+                  isCyanHighlight ? 'hover:border-brand-cyan/30 hover:shadow-brand-cyan/10' : 'hover:border-brand-royal/30 hover:shadow-brand-royal/10'
                 }`}
               >
                 <div>
-                  <h4 className="font-poppins text-base font-bold text-white mb-2 pt-2">
+                  <h4 className="font-poppins text-base font-bold text-slate-900 dark:text-white mb-2 pt-2">
                     {course.name}
                   </h4>
-                  <p className="font-inter text-xs text-brand-dark-textMuted leading-relaxed">
+                  <p className="font-inter text-xs text-slate-600 dark:text-brand-dark-textMuted leading-relaxed">
                     {course.desc}
                   </p>
                 </div>

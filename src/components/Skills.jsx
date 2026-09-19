@@ -104,9 +104,9 @@ function SkillBar({ level }) {
   }, [level]);
 
   return (
-    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden mt-4">
+    <div className="w-full h-1.5 bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden mt-4">
       <div
-        className="h-full bg-gradient-to-r from-brand-purple to-brand-purple-secondary rounded-full transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        className="h-full bg-gradient-to-r from-brand-royal via-brand-violet to-brand-cyan rounded-full transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
         style={{ width: `${width}%` }}
       />
     </div>
@@ -128,27 +128,27 @@ function Skills() {
         <div className="reveal mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="text-left">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-[2px] bg-gradient-to-r from-brand-purple to-brand-purple-secondary rounded-full" />
-              <p className="font-poppins text-sm font-semibold text-brand-purple uppercase tracking-[0.2em]">
+              <div className="w-12 h-[2px] bg-gradient-to-r from-brand-royal via-brand-violet to-brand-cyan rounded-full" />
+              <p className="font-poppins text-sm font-semibold text-brand-royal dark:text-brand-violet uppercase tracking-[0.2em]">
                 Competencies
               </p>
             </div>
-            <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-white">
+            <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">
               Skills & Expertise
             </h2>
           </div>
 
-          {/* Interactive Tab Selector (Gradient active state, 18px rounded) */}
-          <div className="inline-flex p-1.5 rounded-[18px] bg-brand-dark-card border border-white/5 relative z-10 max-w-full overflow-x-auto">
+          {/* Interactive Tab Selector */}
+          <div className="inline-flex p-1.5 rounded-[18px] glass-panel border border-slate-200/80 dark:border-white/5 relative z-10 max-w-full overflow-x-auto shadow-sm">
             {Object.keys(skillCategories).map((key) => {
               const isActive = activeTab === key;
               return (
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
-                  className={`font-poppins text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-all duration-300 whitespace-nowrap ${isActive
-                    ? 'bg-gradient-to-r from-brand-purple to-brand-purple-secondary text-white shadow-md shadow-brand-purple/10'
-                    : 'text-brand-dark-textMuted hover:text-brand-purple'
+                  className={`font-poppins text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl transition-all duration-300 whitespace-nowrap cursor-pointer ${isActive
+                    ? 'bg-gradient-to-r from-brand-royal to-brand-violet text-white shadow-md shadow-brand-royal/25'
+                    : 'text-slate-600 dark:text-brand-dark-textMuted hover:text-brand-royal dark:hover:text-white'
                     }`}
                 >
                   {skillCategories[key].label}
@@ -158,7 +158,7 @@ function Skills() {
           </div>
         </div>
 
-        {/* Skills Grid with 18px rounded corners */}
+        {/* Skills Grid */}
         <div
           key={activeTab}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left"
@@ -166,31 +166,31 @@ function Skills() {
           {skillCategories[activeTab].skills.map((skill) => (
             <div
               key={skill.name}
-              className="glass-panel p-6 sm:p-7 rounded-[18px] glass-card-hover border border-white/5 bg-brand-dark-card/45 flex flex-col justify-between transition-all duration-300"
+              className="glass-panel p-6 sm:p-7 rounded-[18px] glass-card-hover border border-slate-200/80 dark:border-white/5 flex flex-col justify-between transition-all duration-300 shadow-sm"
             >
               <div>
-                {/* Header: Icon & Badge with staggered colors */}
+                {/* Header: Icon & Badge */}
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-2xl">{skill.icon}</span>
                   <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full ${skill.rating === 'Expert'
-                    ? 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20'
+                    ? 'bg-brand-violet/10 text-brand-violet border border-brand-violet/20'
                     : skill.rating === 'Advanced'
-                      ? 'bg-brand-purple/5 text-brand-purple-secondary border border-brand-purple/15'
-                      : 'bg-brand-orange/10 text-brand-orange border border-brand-orange/20' /* Orange highlight */
+                      ? 'bg-brand-royal/10 text-brand-royal border border-brand-royal/20'
+                      : 'bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20'
                     }`}>
                     {skill.rating}
                   </span>
                 </div>
 
                 {/* Name */}
-                <h3 className="font-poppins text-base font-bold text-white">
+                <h3 className="font-poppins text-base font-bold text-slate-900 dark:text-white">
                   {skill.name}
                 </h3>
               </div>
 
               {/* Progress bar */}
               <div className="mt-4">
-                <div className="flex justify-between items-center text-[10px] font-poppins font-extrabold text-brand-dark-textMuted uppercase tracking-wider">
+                <div className="flex justify-between items-center text-[10px] font-poppins font-extrabold text-slate-500 dark:text-brand-dark-textMuted uppercase tracking-wider">
                   <span>Proficiency</span>
                   <span>{skill.level}%</span>
                 </div>

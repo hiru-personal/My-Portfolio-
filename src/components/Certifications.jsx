@@ -67,60 +67,60 @@ function Certifications() {
         {/* Section header */}
         <div className="reveal mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-[2px] bg-gradient-to-r from-brand-purple to-brand-purple-secondary rounded-full" />
-            <p className="font-poppins text-sm font-semibold text-brand-purple uppercase tracking-[0.2em]">
+            <div className="w-12 h-[2px] bg-gradient-to-r from-brand-royal via-brand-violet to-brand-cyan rounded-full" />
+            <p className="font-poppins text-sm font-semibold text-brand-royal dark:text-brand-violet uppercase tracking-[0.2em]">
               Credentials
             </p>
           </div>
-          <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-white">
+          <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">
             Certifications & Qualifications
           </h2>
-          <p className="font-inter text-sm text-brand-dark-textMuted mt-4 max-w-3xl text-left leading-relaxed">
+          <p className="font-inter text-sm text-slate-600 dark:text-brand-dark-textMuted mt-4 max-w-3xl text-left leading-relaxed">
             Bridging financial auditing insights (CA Sri Lanka & AAT) with digital systems management (MERN, Git/GitHub) to bring a dual-domain strategic advantage to enterprise business analysis.
           </p>
         </div>
 
         {/* ─── Category 1: Professional Qualifications ─── */}
         <div className="space-y-6 mb-16">
-          <h3 className="font-poppins text-xl font-bold text-white text-left">
+          <h3 className="font-poppins text-xl font-bold text-slate-900 dark:text-white text-left">
             Professional & Financial Qualifications
           </h3>
           
           <div className="grid md:grid-cols-3 gap-6">
             {professionalQuals.map((qual, i) => {
-              const isOrange = qual.highlight;
+              const isCyan = qual.highlight;
               return (
                 <div
                   key={qual.title}
-                  className={`glass-panel p-6 sm:p-7 rounded-[18px] text-left reveal-scale glass-card-hover border border-white/5 bg-brand-dark-card/45 flex flex-col justify-between ${
-                    isOrange ? 'hover:border-brand-orange/20 hover:shadow-brand-orange/5' : 'hover:border-brand-purple/20 hover:shadow-brand-purple/5'
+                  className={`glass-panel p-6 sm:p-7 rounded-[18px] text-left reveal-scale glass-card-hover border border-slate-200/80 dark:border-white/5 flex flex-col justify-between shadow-sm ${
+                    isCyan ? 'hover:border-brand-cyan/30 hover:shadow-brand-cyan/10' : 'hover:border-brand-royal/30 hover:shadow-brand-royal/10'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full ${
                         qual.completed
-                          ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                          : 'bg-brand-orange/10 text-brand-orange border border-brand-orange/20'
+                          ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
+                          : 'bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20'
                       }`}>
                         {qual.status}
                       </span>
                     </div>
                     
-                    <h4 className="font-poppins text-base font-bold text-white">
+                    <h4 className="font-poppins text-base font-bold text-slate-900 dark:text-white">
                       {qual.title}
                     </h4>
-                    <p className="font-inter text-xs text-brand-dark-textMuted font-semibold mt-1">
+                    <p className="font-inter text-xs text-slate-500 dark:text-brand-dark-textMuted font-semibold mt-1">
                       {qual.org}
                     </p>
                     
-                    <p className="font-inter text-xs text-brand-dark-textMuted leading-relaxed mt-4">
+                    <p className="font-inter text-xs text-slate-600 dark:text-brand-dark-textMuted leading-relaxed mt-4">
                       {qual.desc}
                     </p>
                   </div>
 
                   {qual.reg && (
-                    <div className="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-poppins font-bold text-brand-dark-textMuted uppercase tracking-wider">
+                    <div className="mt-6 pt-3 border-t border-slate-200/80 dark:border-white/5 flex items-center justify-between text-[10px] font-poppins font-bold text-slate-500 dark:text-brand-dark-textMuted uppercase tracking-wider">
                       <span>Reg Number</span>
                       <span>{qual.reg}</span>
                     </div>
@@ -133,44 +133,44 @@ function Certifications() {
 
         {/* ─── Category 2: Digital & Technical Certifications ─── */}
         <div className="space-y-6">
-          <h3 className="font-poppins text-xl font-bold text-white text-left">
+          <h3 className="font-poppins text-xl font-bold text-slate-900 dark:text-white text-left">
             Digital & Technical Credentials
           </h3>
           
           <div className="grid md:grid-cols-3 gap-6">
             {technicalQuals.map((qual, i) => {
-              const isOrange = qual.highlight;
+              const isCyan = qual.highlight;
               return (
                 <div
                   key={qual.title}
-                  className={`glass-panel p-6 sm:p-7 rounded-[18px] text-left reveal-scale glass-card-hover border border-white/5 bg-brand-dark-card/45 flex flex-col justify-between ${
-                    isOrange ? 'hover:border-brand-orange/20 hover:shadow-brand-orange/5' : 'hover:border-brand-purple/20 hover:shadow-brand-purple/5'
+                  className={`glass-panel p-6 sm:p-7 rounded-[18px] text-left reveal-scale glass-card-hover border border-slate-200/80 dark:border-white/5 flex flex-col justify-between shadow-sm ${
+                    isCyan ? 'hover:border-brand-cyan/30 hover:shadow-brand-cyan/10' : 'hover:border-brand-royal/30 hover:shadow-brand-royal/10'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full border ${
-                        isOrange 
-                          ? 'bg-brand-orange/10 text-brand-orange border border-brand-orange/20' 
-                          : 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20'
+                        isCyan 
+                          ? 'bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20' 
+                          : 'bg-brand-violet/10 text-brand-violet border border-brand-violet/20'
                       }`}>
                         Completed
                       </span>
                     </div>
                     
-                    <h4 className="font-poppins text-base font-bold text-white">
+                    <h4 className="font-poppins text-base font-bold text-slate-900 dark:text-white">
                       {qual.title}
                     </h4>
-                    <p className="font-inter text-xs text-brand-dark-textMuted font-semibold mt-1">
+                    <p className="font-inter text-xs text-slate-500 dark:text-brand-dark-textMuted font-semibold mt-1">
                       {qual.org}
                     </p>
                     
-                    <p className="font-inter text-xs text-brand-dark-textMuted leading-relaxed mt-4">
+                    <p className="font-inter text-xs text-slate-600 dark:text-brand-dark-textMuted leading-relaxed mt-4">
                       {qual.desc}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-poppins font-bold text-brand-dark-textMuted uppercase tracking-wider">
+                  <div className="mt-6 pt-3 border-t border-slate-200/80 dark:border-white/5 flex items-center justify-between text-[10px] font-poppins font-bold text-slate-500 dark:text-brand-dark-textMuted uppercase tracking-wider">
                     <span>Issued Date</span>
                     <span>{qual.date}</span>
                   </div>

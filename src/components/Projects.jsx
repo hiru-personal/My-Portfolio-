@@ -27,13 +27,13 @@ function StatCard({ label, count, isNumeric, color = "purple", delay }) {
   }, [count, isNumeric, delay]);
 
   return (
-    <div className={`glass-panel p-5 rounded-[18px] flex flex-col justify-center items-center text-center glass-card-hover min-h-[110px] reveal-scale border border-white/5 bg-brand-dark-card/45 shadow-md hover:border-brand-${color}/20`}>
+    <div className={`glass-panel p-5 rounded-[18px] flex flex-col justify-center items-center text-center glass-card-hover min-h-[110px] reveal-scale border border-slate-200/80 dark:border-white/5 shadow-sm hover:border-brand-royal/30`}>
       <p className={`font-poppins text-2xl sm:text-3xl font-extrabold mb-1 ${
-        color === "orange" ? "text-brand-orange" : "text-brand-purple"
+        color === "orange" || color === "cyan" ? "text-brand-cyan" : "text-brand-royal dark:text-brand-violet"
       }`}>
         {isNumeric ? `${value}+` : count}
       </p>
-      <p className="font-inter text-[10px] sm:text-xs text-brand-dark-textMuted font-bold uppercase tracking-wider leading-snug">
+      <p className="font-inter text-[10px] sm:text-xs text-slate-500 dark:text-brand-dark-textMuted font-bold uppercase tracking-wider leading-snug">
         {label}
       </p>
     </div>
@@ -157,21 +157,21 @@ function Projects() {
         <div className="reveal mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="text-left max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-[2px] bg-gradient-to-r from-brand-purple to-brand-purple-secondary rounded-full" />
-              <p className="font-poppins text-sm font-semibold text-brand-purple uppercase tracking-[0.2em]">
+              <div className="w-12 h-[2px] bg-gradient-to-r from-brand-royal via-brand-violet to-brand-cyan rounded-full" />
+              <p className="font-poppins text-sm font-semibold text-brand-royal dark:text-brand-violet uppercase tracking-[0.2em]">
                 Academic Projects
               </p>
             </div>
-            <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+            <h2 className="font-poppins text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">
               Academic Projects
             </h2>
-            <p className="font-inter text-xs sm:text-sm text-brand-dark-textMuted leading-relaxed mt-4">
+            <p className="font-inter text-xs sm:text-sm text-slate-600 dark:text-brand-dark-textMuted leading-relaxed mt-4">
               A collection of university projects demonstrating business analysis, software development, system design, problem-solving, stakeholder-focused thinking, and technical implementation skills.
             </p>
           </div>
 
-          {/* Interactive Filters (Pill Selector, 18px rounded) */}
-          <div className="inline-flex p-1.5 rounded-[18px] bg-brand-dark-card border border-white/5 relative z-10">
+          {/* Interactive Filters */}
+          <div className="inline-flex p-1.5 rounded-[18px] glass-panel border border-slate-200/80 dark:border-white/5 relative z-10 shadow-sm">
             {[
               { id: 'all', label: 'All Projects' },
               { id: 'ba', label: 'Business Analysis' },
@@ -181,10 +181,10 @@ function Projects() {
               <button
                 key={tab.id}
                 onClick={() => setFilter(tab.id)}
-                className={`font-poppins text-[10px] sm:text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all duration-300 ${
+                className={`font-poppins text-[10px] sm:text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all duration-300 cursor-pointer ${
                   filter === tab.id
-                    ? 'bg-gradient-to-r from-brand-purple to-brand-purple-secondary text-white shadow-md shadow-brand-purple/10'
-                    : 'text-brand-dark-textMuted hover:text-brand-purple'
+                    ? 'bg-gradient-to-r from-brand-royal to-brand-violet text-white shadow-md shadow-brand-royal/25'
+                    : 'text-slate-600 dark:text-brand-dark-textMuted hover:text-brand-royal dark:hover:text-white'
                 }`}
               >
                 {tab.label}
@@ -193,12 +193,12 @@ function Projects() {
           </div>
         </div>
 
-        {/* ─── Animated Statistics Row with Subtle Orange Highlight ─── */}
+        {/* ─── Animated Statistics Row ─── */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <StatCard label="Academic Projects" count="4" isNumeric={true} color="purple" delay={100} />
-          <StatCard label="Real Client Experience" count="Garment" isNumeric={false} color="purple" delay={200} />
-          <StatCard label="Agile Participation" count="Scrum" isNumeric={false} color="orange" delay={300} />
-          <StatCard label="BA Documentation Experience" count="SRS" isNumeric={false} color="purple" delay={400} />
+          <StatCard label="Academic Projects" count="4" isNumeric={true} color="royal" delay={100} />
+          <StatCard label="Real Client Experience" count="Garment" isNumeric={false} color="violet" delay={200} />
+          <StatCard label="Agile Participation" count="Scrum" isNumeric={false} color="cyan" delay={300} />
+          <StatCard label="BA Documentation Experience" count="SRS" isNumeric={false} color="sky" delay={400} />
         </div>
 
         {/* ─── Projects Grid ─── */}
@@ -211,8 +211,8 @@ function Projects() {
             return (
               <div
                 key={project.id}
-                className={`glass-panel p-6 sm:p-8 rounded-[18px] glass-card-hover border border-white/5 bg-brand-dark-card/45 flex flex-col justify-between ${
-                  isHighlight ? 'hover:border-brand-orange/20' : 'hover:border-brand-purple/20'
+                className={`glass-panel p-6 sm:p-8 rounded-[18px] glass-card-hover border border-slate-200/80 dark:border-white/5 flex flex-col justify-between shadow-sm ${
+                  isHighlight ? 'hover:border-brand-cyan/30' : 'hover:border-brand-royal/30'
                 }`}
               >
                 <div>
@@ -220,18 +220,18 @@ function Projects() {
                   <div className="flex items-center justify-between mb-4">
                     <span className={`text-[10px] font-poppins font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full border ${
                       isHighlight 
-                        ? 'text-brand-orange bg-brand-orange/10 border-brand-orange/15' 
-                        : 'text-brand-purple bg-brand-purple/10 border-brand-purple/15'
+                        ? 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/20' 
+                        : 'text-brand-violet bg-brand-violet/10 border-brand-violet/20'
                     }`}>
                       {project.category}
                     </span>
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="font-poppins text-lg sm:text-xl font-bold text-white mb-2 leading-snug">
+                  <h3 className="font-poppins text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 leading-snug">
                     {project.title}
                   </h3>
-                  <p className="font-inter text-xs sm:text-sm text-brand-dark-textMuted leading-relaxed mb-6">
+                  <p className="font-inter text-xs sm:text-sm text-slate-600 dark:text-brand-dark-textMuted leading-relaxed mb-6">
                     {project.description}
                   </p>
 
@@ -241,7 +241,7 @@ function Projects() {
                       {project.tools.map((tool) => (
                         <span
                           key={tool}
-                          className="font-inter text-[10px] font-bold uppercase tracking-wider text-white/60 bg-white/5 border border-white/5 px-2.5 py-1 rounded-lg"
+                          className="font-inter text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-white/70 bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/5 px-2.5 py-1 rounded-lg"
                         >
                           {tool}
                         </span>
@@ -251,14 +251,14 @@ function Projects() {
                 </div>
 
                 {/* Action and Metrics */}
-                <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                  <span className="font-poppins text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">
+                <div className="pt-4 border-t border-slate-200/80 dark:border-white/5 flex items-center justify-between">
+                  <span className="font-poppins text-[10px] font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
                     Impact Verified
                   </span>
                   
                   <button
                     onClick={() => setActiveProject(project)}
-                    className="font-poppins font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-purple to-brand-purple-secondary hover:opacity-90 text-white shadow-md shadow-brand-purple/10 transition-all duration-300"
+                    className="font-poppins font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-purple to-brand-purple-secondary hover:opacity-95 text-white shadow-md shadow-brand-purple/20 transition-all duration-300 cursor-pointer"
                   >
                     Learn More
                   </button>
@@ -271,12 +271,12 @@ function Projects() {
 
       {/* ─── Interactive Learn More Case Study Modal ─── */}
       {activeProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-dark-bg/85 backdrop-blur-md transition-opacity duration-300">
-          <div className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto glass-panel p-8 sm:p-10 rounded-[18px] shadow-2xl bg-brand-dark-card border border-white/10 flex flex-col justify-between">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 dark:bg-brand-dark-bg/85 backdrop-blur-md transition-opacity duration-300">
+          <div className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto glass-panel p-8 sm:p-10 rounded-[18px] shadow-2xl bg-white dark:bg-brand-dark-card border border-slate-200 dark:border-white/10 flex flex-col justify-between">
             {/* Close Button */}
             <button
               onClick={() => setActiveProject(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 hover:scale-105 active:scale-95 transition-all text-white"
+              className="absolute top-5 right-5 p-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 hover:scale-105 active:scale-95 transition-all text-slate-700 dark:text-white cursor-pointer"
               aria-label="Close modal"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -290,19 +290,19 @@ function Projects() {
                 <span className="inline-block text-[9px] font-poppins font-extrabold uppercase tracking-widest bg-brand-purple/10 text-brand-purple px-3 py-1 rounded-full border border-brand-purple/15 mb-2">
                   {activeProject.category}
                 </span>
-                <h3 className="font-poppins text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                <h3 className="font-poppins text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">
                   {activeProject.title}
                 </h3>
               </div>
 
-              <div className="h-[1px] bg-white/5" />
+              <div className="h-[1px] bg-slate-200 dark:bg-white/5" />
 
               {/* Description Block */}
               <div className="space-y-2">
                 <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-brand-purple">
                   Project Overview
                 </h4>
-                <p className="font-inter text-xs sm:text-sm text-brand-dark-textMuted leading-relaxed">
+                <p className="font-inter text-xs sm:text-sm text-slate-600 dark:text-brand-dark-textMuted leading-relaxed">
                   {activeProject.description}
                 </p>
               </div>
@@ -313,7 +313,7 @@ function Projects() {
                   <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-brand-purple mb-3">
                     Core Responsibilities
                   </h4>
-                  <ul className="text-xs text-brand-dark-textMuted space-y-2 list-disc pl-4 leading-relaxed">
+                  <ul className="text-xs text-slate-600 dark:text-brand-dark-textMuted space-y-2 list-disc pl-4 leading-relaxed">
                     {activeProject.responsibilities.map((resp, index) => (
                       <li key={index}>{resp}</li>
                     ))}
@@ -326,30 +326,30 @@ function Projects() {
                     <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-brand-purple mb-3">
                       Key Highlights & Impact
                     </h4>
-                    <ul className="text-xs text-brand-dark-textMuted space-y-2 list-disc pl-4 leading-relaxed mb-4">
+                    <ul className="text-xs text-slate-600 dark:text-brand-dark-textMuted space-y-2 list-disc pl-4 leading-relaxed mb-4">
                       {activeProject.highlights.map((high, index) => (
                         <li key={index}>{high}</li>
                       ))}
                     </ul>
                     <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">
-                      <p className="font-poppins text-[10px] font-extrabold uppercase tracking-wide text-emerald-400">
+                      <p className="font-poppins text-[10px] font-extrabold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">
                         Estimated Outcome:
                       </p>
-                      <p className="font-inter text-xs text-brand-dark-textMuted mt-1 leading-snug">
+                      <p className="font-inter text-xs text-slate-700 dark:text-brand-dark-textMuted mt-1 leading-snug">
                         {activeProject.impact}
                       </p>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-white/50 mb-2.5">
+                    <h4 className="font-poppins font-bold uppercase tracking-wider text-xs text-slate-500 dark:text-white/50 mb-2.5">
                       Tool & Methodology Stack
                     </h4>
                     <div className="flex flex-wrap gap-1.5">
                       {activeProject.tools.concat(activeProject.skills).map((tag) => (
                         <span
                           key={tag}
-                          className="font-inter text-[10px] font-bold uppercase tracking-wider text-brand-purple bg-brand-purple/5 border border-brand-purple/15 px-2 py-1 rounded-lg"
+                          className="font-inter text-[10px] font-bold uppercase tracking-wider text-brand-purple bg-brand-purple/10 dark:bg-brand-purple/5 border border-brand-purple/20 px-2 py-1 rounded-lg"
                         >
                           {tag}
                         </span>
@@ -361,10 +361,10 @@ function Projects() {
             </div>
 
             {/* Modal Action Buttons */}
-            <div className="flex justify-end gap-3 mt-8 pt-4 border-t border-white/5">
+            <div className="flex justify-end gap-3 mt-8 pt-4 border-t border-slate-200 dark:border-white/5">
               <button
                 onClick={() => setActiveProject(null)}
-                className="font-poppins font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition text-white"
+                className="font-poppins font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 transition text-slate-800 dark:text-white cursor-pointer"
               >
                 Close
               </button>

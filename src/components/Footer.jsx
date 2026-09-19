@@ -23,9 +23,9 @@ function Footer() {
   ];
 
   return (
-    <footer className="relative bg-[#09090D] text-white/70 overflow-hidden">
-      {/* Subtle purple gradient border line */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent" />
+    <footer className="relative bg-slate-100 dark:bg-[#09090D] text-slate-600 dark:text-white/70 overflow-hidden border-t border-slate-200 dark:border-transparent transition-colors duration-300">
+      {/* Subtle royal/violet gradient border line */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-royal/30 to-transparent" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -33,11 +33,11 @@ function Footer() {
           <div className="text-center md:text-left">
             <a
               href="#hero"
-              className="font-poppins text-lg font-extrabold tracking-tight text-white hover:text-brand-purple transition-colors duration-300"
+              className="font-poppins text-lg font-extrabold tracking-tight text-slate-900 dark:text-white hover:text-brand-royal transition-colors duration-300"
             >
               H. DISSANAYAKE
             </a>
-            <p className="font-inter text-xs text-white/40 mt-1.5 font-medium uppercase tracking-wider">
+            <p className="font-inter text-xs text-slate-500 dark:text-white/40 mt-1.5 font-medium uppercase tracking-wider">
               Business Analyst • Enterprise Solutions
             </p>
           </div>
@@ -51,7 +51,7 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className="w-10 h-10 rounded-[18px] bg-white/5 border border-white/10 text-white/50 hover:text-brand-purple hover:bg-white/10 flex items-center justify-center transition-all duration-300 hover:scale-105"
+                className="w-10 h-10 rounded-[18px] glass-panel border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-white/50 hover:text-brand-royal hover:bg-white/40 dark:hover:bg-white/10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm"
               >
                 {link.icon}
               </a>
@@ -64,28 +64,28 @@ function Footer() {
               href="https://hiruni-dissanayake-portfolio.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-poppins text-xs font-semibold text-brand-purple hover:text-brand-purple-secondary transition-colors inline-flex items-center gap-1.5"
+              className="font-poppins text-xs font-semibold text-brand-royal hover:text-brand-violet transition-colors inline-flex items-center gap-1.5"
             >
               <span>hiruni-dissanayake-portfolio.netlify.app</span>
-              <svg className="w-3 h-3 text-brand-purple" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <svg className="w-3 h-3 text-brand-royal" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
               </svg>
             </a>
-            <p className="font-inter text-xs text-white/40">
+            <p className="font-inter text-xs text-slate-500 dark:text-white/40">
               © {new Date().getFullYear()} Hiruni Dissanayake. All rights reserved.
             </p>
           </div>
         </div>
 
         {/* Bottom micro-credits with Last Modified tag */}
-        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-white/40 tracking-wider font-semibold uppercase">
+        <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-slate-500 dark:text-white/40 tracking-wider font-semibold uppercase">
           <span className="flex items-center gap-1.5">
-            Framework: <span className="text-brand-purple-secondary font-bold">React + Vite</span>
+            Framework: <span className="text-brand-royal font-bold">React + Vite</span>
           </span>
-          <span className="hidden sm:inline text-white/10">•</span>
-          <span className="flex items-center gap-1.5 text-emerald-400/90 font-mono text-[11px] normal-case">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Last Modified: July 22, 2026
+          <span className="hidden sm:inline text-slate-300 dark:text-white/10">•</span>
+          <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-mono text-[11px] normal-case">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            Last Modified: 2026
           </span>
         </div>
       </div>
